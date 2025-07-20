@@ -1,0 +1,14 @@
+main {
+  display: flex;
+  height: 100vh;
+}
+main nav {
+  width: 80px;
+  background: blueviolet;
+}
+main article {
+  background: #ccc;
+  padding-left: 10px;
+  background-clip: content-box;
+  flex: 1;
+}

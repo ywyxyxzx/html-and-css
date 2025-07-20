@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            height:100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main{
+         background-color: #ddd;
+         flex:1;
+        }
+        footer{
+    
+            background: linear-gradient(to bottom, #f3f3f3, #ddd, #f3f3f3);
+            border-top:solid 1px #ddd;
+            height:60px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        footer>div{
+            flex:1;
+            text-align: center;
+            line-height: 3em;
+            color:#555;
+        }
+        footer>div:nth-child(n+2){
+            border-left:solid 1px #ccc;
+        }
+    </style>
+</head>
+<body>
+    <main></main>
+    <footer>
+        <div>後盾</div>
+        <div>直播</div>
+        <div>1233</div>
+        <div>1233</div>
+    </footer>
+</body>
+</html>

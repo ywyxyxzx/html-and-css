@@ -13,6 +13,7 @@ article.table-a {
   display: table;
   width: 300px;
   border-collapse: collapse;
+  margin-bottom: 30px;
 }
 article.table-a nav {
   display: table-caption;
@@ -58,4 +59,83 @@ article.table-a section ul li div.content {
 article.table-a section ul li.test {
   display: table-cell;
   column-count: 2;
+}
+article.table-b {
+  display: table;
+  width: 1000px;
+  border-collapse: collapse;
+  border: none;
+  margin-bottom: 30px;
+}
+article.table-b nav.col {
+  display: table-column-group;
+}
+article.table-b nav.col > div {
+  display: table-column;
+  column-span: all;
+}
+article.table-b nav.col > div:nth-of-type(1) {
+  width: 20%;
+}
+article.table-b nav.col > div:nth-of-type(2) {
+  width: 40%;
+}
+article.table-b nav.col > div:nth-of-type(3) {
+  width: 40%;
+}
+article.table-b section {
+  display: table-row-group;
+}
+article.table-b section:first-child {
+  display: table-header-group;
+  background: #bbb;
+}
+article.table-b section:first-child > ul > li:nth-child(1) {
+  width: 20%;
+}
+article.table-b section:first-child > ul > li:nth-child(2) {
+  width: 40%;
+}
+article.table-b section:first-child > ul > li:nth-child(3) {
+  width: 40%;
+}
+article.table-b section:last-child {
+  display: table-footer-group;
+  border-bottom: solid 1px #ddd;
+}
+article.table-b section > ul {
+  display: table-row;
+}
+article.table-b section > ul > li {
+  border-right: solid 1px #ddd;
+  border-top: solid 1px #ddd;
+  padding: 10px;
+  display: table-cell;
+}
+article.table-b section > ul > li div.content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+article.table-b section > ul > li:last-child {
+  border-right: none;
+}
+table.table1 {
+  border: none;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+table.table1 tr > td {
+  border-top: solid 1px #ccc;
+  padding: 10px;
+}
+table.table1 tr:last-child > td {
+  border-bottom: solid 1px #ccc;
+}
+ul.list-style {
+  list-style: none;
+  padding-left: 0;
+}
+ul.list-style > li {
+  padding: 0;
 }
