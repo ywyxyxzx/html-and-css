@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彈性</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            height:100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main{
+            background: #ddd;
+            display: flex;
+            flex:1;
+            
+        }
+        footer{
+            height:50px;
+            background: #f3f3f3;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-between;
+    }
+
+    footer .start-icon{
+        display: flex;
+        flex:0 0 100px;
+        justify-content: center;
+        align-items: center;
+
+    }
+        footer section{
+            flex:1;
+            display: flex;
+            /* justify-content: flex-start; */
+            align-items: center;
+            flex-direction: column-reverse;
+        }
+        footer section:not(:last-child){
+            border-right: solid 1px #ccc;
+        }
+        footer section h4{
+            display: flex  ;
+            flex:1 0 50px;
+           flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        footer section ul{
+         display: none;
+            flex-direction: column;
+            
+            text-align: center;
+           
+              width: 100%;  
+            /* */
+        }    
+
+        footer section ul li{
+            flex:1 0 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom:solid 1px #ccc;
+            border-right: solid 1px #ccc;
+            border-left: solid 1px #ccc;
+            cursor: pointer;
+            background: #f3f3f3;
+            
+             
+        }
+         footer section ul li:hover{
+            background: #ddd;
+         }
+         footer section ul li:first-child{
+            border-top:solid 1px #ccc;
+         }
+        footer section ul li:last-child{
+           margin-bottom:5px;      
+        }
+        
+        footer section:hover ul{
+             display: flex;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </style>
+    <main>
+
+    </main>
+    <footer>
+        <div class="start-icon">
+            Start
+        </div>
+        <section>
+            <h4>jiaocheng</h4>
+            <ul>
+                <li>PHP</li>
+                <li>PH11</li>
+                <li>PHP22</li>
+            </ul>
+        </section>
+        <section>
+            <h4>22</h4>
+            <ul>
+                <li>PHP</li>
+                <li>PH11</li>
+                <li>PHP22</li>
+            </ul>
+        </section>
+        <section><h4>33</h4></section>
+    </footer>
+</body>
+</html>
