@@ -1,0 +1,32 @@
+.textDiv{
+            font-size: 50px;
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            text-align: center;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .textDiv .color{
+            animation-name: addColor;
+            animation-duration: 1s;
+            animation-iteration-count: 2;
+            animation-timing-function: linear
+        }
+
+        @keyframes addColor {
+            50% {
+                color: #f1c50f;
+                transform: scale(2);
+            
+            }
+            100% {
+                color: red;
+                transform: scale(0.5);
+            }
+        }
