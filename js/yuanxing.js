@@ -29,3 +29,18 @@ console.dir(xj)
 
 console.dir(Admin.prototype)
 console.dir(User.prototype)
+console.dir(`======================`)
+
+function Aa(){
+
+
+}
+let aa = new Aa()
+
+console.dir(aa.__proto__ === Aa.prototype)
+
+console.dir(Aa.prototype)
+console.dir(`======================`)
+console.dir( Object.prototype)
+
+console.dir(Aa.__proto__ === Function.prototype)
