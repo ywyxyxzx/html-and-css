@@ -1,0 +1,1 @@
+const el:HTMLDivElement = document.querySelector('.container') as HTMLDivElement;
