@@ -8,22 +8,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// 方法装饰器
-const showDecorator = (target, propertyKey, descriptor) => {
-    descriptor.value = () => {
-        console.log('show111');
-    };
-    return descriptor;
+const user = {
+    name: 'ywy',
+    isLogin: true,
+    permissions: ["admin", "user"]
 };
-class User {
-    show() {
-        console.log('show');
+const AccessDecorator = (keys) => {
+    return (target, propertyKey, descriptor) => {
+        const method = descriptor.value;
+        const isValidate = (permissions) => {
+            return keys.every((item) => {
+                return user.permissions.includes(item);
+            });
+        };
+        descriptor.value = () => {
+            if (!user.isLogin) {
+                alert("请先登录");
+            }
+            if (!isValidate(user.permissions)) {
+                alert("无权限");
+            }
+            return method();
+        };
+    };
+};
+class Login {
+    constructor() { }
+    init() {
+        console.log('init');
     }
 }
 __decorate([
-    showDecorator,
+    AccessDecorator(['admin1']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], User.prototype, "show", null);
-new User().show();
+], Login.prototype, "init", null);
+new Login().init();

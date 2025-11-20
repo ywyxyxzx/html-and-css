@@ -1,6 +1,6 @@
 "use strict";
-var xy = 10;
-var b131 = xy;
-var a131 = '99a';
-var a132 = a131;
+let xy = 10;
+let b131 = xy;
+let a131 = '99a';
+let a132 = a131;
 console.log(a132);

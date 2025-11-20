@@ -8,22 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// 方法装饰器
-const showDecorator = (target, propertyKey, descriptor) => {
-    descriptor.value = () => {
-        console.log('show111');
-    };
-    return descriptor;
+const LowerDecorator = (target, propertyKey) => {
+    let value;
+    Object.defineProperty(target, propertyKey, {
+        get: () => {
+            return value;
+        },
+        set: v => {
+            value = v.toLowerCase();
+        }
+    });
 };
-class User {
-    show() {
-        console.log('show');
-    }
+class Hd19 {
+    constructor() { }
 }
 __decorate([
-    showDecorator,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], User.prototype, "show", null);
-new User().show();
+    LowerDecorator,
+    __metadata("design:type", String)
+], Hd19.prototype, "title", void 0);
+let hd19 = new Hd19();
+hd19.title = "Hd19";
+console.log(hd19.title);

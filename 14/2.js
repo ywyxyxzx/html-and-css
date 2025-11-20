@@ -2,4 +2,4 @@
 function sum(a, b) {
     return a + b;
 }
-console.log(sum("aa", 3));
+console.log(sum(`aa`, 3));

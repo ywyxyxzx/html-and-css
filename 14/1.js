@@ -1,9 +1,8 @@
 "use strict";
-var Hd = /** @class */ (function () {
-    function Hd() {
-        this.get = function () { return "sdfaf"; };
+class Hd {
+    constructor() {
+        this.get = () => "sdfaf";
     }
-    return Hd;
-}());
-var obj = new Hd();
+}
+const obj = new Hd();
 console.log(obj.aa());

@@ -1,2 +1,2 @@
 "use strict";
-var el = document.querySelector('.container');
+const el = document.querySelector('.container');
