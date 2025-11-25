@@ -18,4 +18,7 @@ const xdclass = ()=> new Promise((resolve,reject)=>{
 console.log(xdclass())
 const img = new Image();
 img.src= icon;
-document.body.append(img);
+//document.body.append(img);
+
+// eslint-disable-next-line
+alert(API_BASE_URL)
