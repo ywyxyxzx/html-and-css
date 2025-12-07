@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .number-part{       
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            flex-direction: row;
+        }
+        .number-part .button{ 
+            display:inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            margin:0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="number-part">
+            <div @click="add(event)" class="button">+</div>
+            <span>{{num}}</span>
+            <div @click="sub(event)" class="button">-</div>
+        </div>
+        <div v-if="error">msg:{{error}}</div>
+
+
+    </div>
+
+
+    <script src = "cdn1.js"></script>
+</body>
+</html>
