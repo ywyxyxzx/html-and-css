@@ -26,5 +26,33 @@ const app = Vue.createApp({
         }
     }
 });
+
+
+// 局部组件
+const todo = {
+    data(){
+        return {
+            name: 'zs13123'
+        }
+    },
+    template:`<div>{{name}}</div>`
+}
+// 全局组件
+app.component('hhh', {
+
+    template: `123123hhhhhh123<todo/>`,
+    components:{
+        todo
+    },
+    methods: {
+
+
+    }
+
+})
+
+
+
+
 const vm = app.mount('#app')
 console.log(vm.$data.name)                                                                                                                                                                                                                                                                                                                                                                                                       
