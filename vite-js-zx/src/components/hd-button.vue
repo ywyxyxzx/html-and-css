@@ -1,19 +1,21 @@
 <template>
   <div>
-   <button :class="[type,{disabled: disabled}]" >{{ context }}</button>
+   <button :class="[type,{disabled: disabled}]" @click="$emit('bClick')">{{ context }}</button>
   </div>
 </template>
 
 <script>
   export default {
     inheritAttrs: false,
+    emits: ['bClick'],
     props: {
       click: {
         type: Function,
       },
       context: {
         type: String,
-        default: 'button'
+        default: 'button',
+        required: true
       },
       type: {
         type: String,

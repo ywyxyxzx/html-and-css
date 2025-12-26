@@ -11,6 +11,24 @@
 <script>
     import lessons from '../data/lesson.js';
     export default {
+         beforeCreate(){
+    console.log('beforeCreate Card')
+  },
+  created(){
+    console.log('created Card')
+  },
+   beforeMount(){
+    console.log('beforeMount Card')
+  },
+  mounted(){
+    console.log('mounted Card')
+  },
+    beforeUpdate(){
+    console.log('beforeUpdate')
+  },
+  updated(){
+    console.log('updated')
+  },
         data() {
             return {
                 lessons: lessons
