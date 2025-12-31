@@ -1,4 +1,6 @@
 <template>
+ name: {{ user }}
+ <button @click="updateUser('4234')">change name</button>
   <div>
     <component :is="slotsDefaults[0]"></component>
     <button @click="sub">-</button>
@@ -9,7 +11,7 @@
 </template>
 
 <script>
-import { ref, computed,watch, watchEffect, defineExpose } from 'vue';
+import { ref, computed,watch, watchEffect, defineExpose, inject } from 'vue';
 export default  {
   name: 'Count',
   props: {
@@ -17,6 +19,8 @@ export default  {
   },
    // inheritAttrs: false,
     setup(props, context){
+      const user = inject('user', '131231');
+      const updateUser = inject('updateUser')
       console.log(1312313, props, context)
       let {emit, expose, attrs, slots} = context;
 
@@ -52,7 +56,7 @@ export default  {
       })
 
       expose({num})
-      return {num,add, sub, attrs, slotsDefaults,  sum };
+      return {num,add, sub, attrs, slotsDefaults,  sum ,user,updateUser };
     },
   
       
