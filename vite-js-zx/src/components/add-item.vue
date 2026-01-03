@@ -1,13 +1,14 @@
 <script setup>
-    import userTodo from "../composables/userTodo.js";
-
-    const props = defineProps({
-        todo: {type: Object, required: true}
-        })
-    const { todos, getListHandle, delItemHandle } = userTodo()
-    const del = async (id) => {
-        await delItemHandle(id) 
-        await getListHandle()
+    import { ref } from "vue";
+import userTodo from "../composables/userTodo.js";
+    let newTitle = ref('');
+    // const props = defineProps({
+    //     todo: {type: Object, required: true}
+    //     })
+    const { todos, getListHandle, addItemHandle} = userTodo()
+    const add = async () => {
+        await addItemHandle({title: newTitle.value}) ;
+        await getListHandle();
         //emits('delItem', id)
     }
     // const emits = defineEmits(['del']);
@@ -17,9 +18,9 @@
 
 <template>
   <div class="item-c"> 
-    <span>{{todo.id}}</span>
-    <input :value="todo.title">
-    <button @click="del(todo.id)">delete</button>
+    <span></span>
+    <input v-model="newTitle">
+    <button @click="add()">add</button>
   </div>
 </template>
 

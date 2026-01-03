@@ -1,10 +1,14 @@
 <template>
   <p>123123444</p>
+  <button @click="orderby==asc">asc</button>
+   <button @click="orderby==desc">desc</button>
   <div class="items">
     <div class="item" v-for="todo of todos" :key="todo.id">
-      <Item :todo="todo" @delItem="delItem" />
+      <Item :todo="todo"  />
     </div>
-
+    <div>
+      <AddItem />
+    </div>
   </div>
 
 
@@ -12,27 +16,16 @@
 
 
 <script setup>
-import userRequest from '../request/fetch.js';
-import { ref, onMounted } from 'vue';
+
 import Item from './item.vue';
+import AddItem from './add-item.vue';
+import userTodo from "../composables/userTodo.js";
+import { ref, onMounted } from 'vue';
 
+const { todos, getListHandle, delItemHandle } = userTodo()
 
-const todos = ref([])
-const { listRequest, delItemRequest } = userRequest();
+await getListHandle();
 
-
-const getList = async () => {
-  todos.value = await listRequest()
-}
-getList()
-
-
-const delItem = async (id) => {
-  debugger
-   await  delItemRequest(id)
-  getList()
-
-}
 
 
 
