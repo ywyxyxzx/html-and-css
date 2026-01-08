@@ -16,7 +16,7 @@ const rl = readline.createInterface({
     })
   }
  let  aa= Mock.mock(data);
- console.log(aa)
+ console.log(JSON.stringify(aa))
    // console.log(JSON.stringify(data))
 module.exports = function () {
  

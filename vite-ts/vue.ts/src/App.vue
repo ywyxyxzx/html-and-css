@@ -4,16 +4,17 @@
 </script>
 
 <template>
-  <div>
- <router-link to="/">Home</router-link>
- <br>
-  <router-link to="/about">About</router-link>
-  </div>
+  
+    <div>
+      <router-link to="/">Home</router-link>
+      <br>
+      <router-link to="/article">Article</router-link>
+    </div>
+    <suspense>
+   <router-view />
+    </suspense>
  
-111111111111111
-  <router-view />
+  
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
