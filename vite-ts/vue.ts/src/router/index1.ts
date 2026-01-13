@@ -1,5 +1,5 @@
 import Home from '../components/home.vue';
-import About from '../components/about.vue';
+import About from '../components/article.vue';
 import {ref} from 'vue';
 const path1 = ref(window.location.pathname);
 const router = {

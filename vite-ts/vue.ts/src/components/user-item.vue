@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-    article: {
+    userInfo: {
         type: Object,
         required: true,
     }
@@ -8,8 +8,8 @@ const props = defineProps({
 </script>
 <template>
 <div class="list-item">
-    <router-link :to="{name: 'AritcleFile', params: {id: article.id}}">
-        <span class="title">{{ article?.title }}</span>
+    <router-link :to="`/user/${userInfo?.id}`">
+        <span class="title">{{ userInfo?.name }}</span>
     </router-link>    
     
 </div>

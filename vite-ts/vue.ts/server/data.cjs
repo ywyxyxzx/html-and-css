@@ -6,13 +6,17 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
- var data = {news: []}
+ var data = {article: [], user: []}
 
-  for(let i=0;i<20;i++){
-    data.news.push({
+  for(let i=0;i<10;i++){
+    // data.article.push({
+    //   id: i,
+    //   title: Mock.Random.cword(10,20), // Random.cword( min, max )
+    //   content: Mock.Random.cparagraph(10)
+    // })
+    data.user.push({
       id: i,
-      title: Mock.Random.cword(10,20), // Random.cword( min, max )
-      content: Mock.Random.cparagraph(10)
+      name: Mock.Random.word(3), // Random.cname() 随机生成一个常见的中文姓名
     })
   }
  let  aa= Mock.mock(data);

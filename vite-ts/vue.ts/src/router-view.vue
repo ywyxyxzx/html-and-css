@@ -4,7 +4,7 @@ import router from './router';
 import {path1} from './router';
 console.log(router)
 let view = computed(() => {
-    debugger
+    
     const route = router.routes.find(route1 => route1.path === path1.value);
     const c = route?.component
     return c;

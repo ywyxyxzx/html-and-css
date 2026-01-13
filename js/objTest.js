@@ -269,15 +269,15 @@ function View(){
 
 class Validate {
     max(val, len){
-        debugger
+        
         return val.length <= len;
     }
     min(val, len){
-        debugger
+        
         return val.length > len;
     }
     isNumber(val){
-        debugger
+        
         return /^\d+$/.test(val);
     }
 }
@@ -290,11 +290,11 @@ function ProxyFactory(target) {
         },
         set(target, key, val){
             console.log(target, key, val)
-           debugger
+           
             const rules = target[key].getAttribute('validateRule');
             const validate = new Validate();
             let state = rules.split(",").every(rule => {
-                debugger
+                
                 const info = rule.split(':');
                 const result = validate[info[0]](val.value, info[1])
                 return result;

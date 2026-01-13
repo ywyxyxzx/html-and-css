@@ -8,7 +8,7 @@ const prop = defineProps({
     }
 })
 const push = () => {
-    debugger
+    
     console.log(path1.value)
     path1.value = prop.to;
 }

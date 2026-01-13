@@ -5,16 +5,20 @@
 
 <template>
   
-    <div>
-      <router-link to="/">Home</router-link>
-      <br>
-      <router-link to="/article">Article</router-link>
-    </div>
+ 
     <suspense>
-   <router-view />
+   <router-view >
+    <template #default="{ Component, route }" name="navigation">
+      <div :class="route.meta?.class">
+        <component :is="Component" />
+      </div>
+    </template>
+   </router-view>
     </suspense>
  
   
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+
+</style>

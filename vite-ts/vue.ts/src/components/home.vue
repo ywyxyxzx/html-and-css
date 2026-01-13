@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import  {ref} from 'vue';
 import * as api from "../api";
-import ArticleItem from './article-item.vue';
-const articles = ref(await api.getAllArticles());
+import Nav from './nav.vue';
 </script>
 <template>
-    home
-<hr>
-<div v-for="article in articles" >
-    <ArticleItem :article="article"></ArticleItem>
-</div>
+<Nav></Nav>
+home
+    
+
 
 </template>
-<style scoped></style>
+<style scoped>
+
+
+</style>

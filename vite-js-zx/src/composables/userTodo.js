@@ -19,7 +19,7 @@ export default ()=>{
      }
 
      watch(orderBy, async (nv, ov) => {
-        debugger
+        
         if (nv !== ov) {
             
         }
