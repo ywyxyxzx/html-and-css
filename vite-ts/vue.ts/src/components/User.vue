@@ -9,7 +9,7 @@ const userList = ref(await api.getUserList());
 <template>
 
 
-<Nav>></Nav>    
+    
     <div class="article-wrap">
         <UserItem  v-for="userInfo in  userList" :userInfo="userInfo" class="article-item"></UserItem>
     </div>

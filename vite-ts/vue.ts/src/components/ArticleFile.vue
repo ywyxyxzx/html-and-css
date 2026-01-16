@@ -15,13 +15,13 @@ const getContent = async () => {
 
 
 watch(route, async () => {
-    debugger
+    
      getContent ()
 })
 
  getContent ()
 watch(articleObj, async () => {
-    debugger
+    
    console.log( articleObj.value)
 })
 </script>

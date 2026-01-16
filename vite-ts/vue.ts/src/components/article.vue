@@ -3,11 +3,10 @@
 import  {ref} from 'vue';
 import * as api from "../api";
 import ArticleList from '../components/article-list.vue';   
-import Nav from './nav.vue';
+
 
 </script>
 <template>
-    <Nav></Nav>
     <div class="article-wrap">
         <ArticleList></ArticleList>
     </div>
