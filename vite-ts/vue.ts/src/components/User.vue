@@ -2,7 +2,7 @@
 import  {ref} from 'vue';
 import * as api from "../api";
 import UserItem from './user-item.vue';
-import Nav from './nav.vue';
+
 const userList = ref(await api.getUserList());
 
 </script>

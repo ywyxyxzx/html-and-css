@@ -2,17 +2,15 @@
 
 import { ref } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../components/home.vue';
-import Article from '../components/article.vue';
-import ArticleFile from "../components/ArticleFile.vue";
+// @ts-ignore
 import User from "../components/User.vue";
+// @ts-ignore
 import UserInfo from "../components/UserInfo.vue";
 import NotFound from '../components/not-found.vue';
+// @ts-ignore
 import NavUser from "../components/nav-user.vue";
-import Front from "../components/front.vue";
-import Member from "../components/member.vue";
-import Mobile from "../components/mobile.vue";
-import Email from "../components/email.vue";
+import { logincheck } from '../helper';
+
 import MemberIndex from "../components/member-index.vue"
 
 const path1 = ref(window.location.pathname);
@@ -23,13 +21,13 @@ const router = createRouter({
   routes: [
      {
           path: '/',
-          component: Home,
+          component: ()=>import('../components/home.vue') ,
           name: 'home',
           meta: { class: 'home' }
         },
     {
       path: '/front',
-      component: Front,
+      component: ()=>import('../components/front.vue'),
       name: 'front',
       meta: { class: 'front', },
        alias: ['/m'],
@@ -37,14 +35,17 @@ const router = createRouter({
        
         {
           path: 'article',
-          component: Article,
+          component: ()=>import('../components/article.vue'),
           name: 'article',
-          meta: { class: 'article' }
+          meta: { class: 'article' },
+      //    beforeEnter: [logincheck]
 
         },
+        
         {
           path: 'show/article-:id(.*)',
-          component: ArticleFile,
+          // @ts-ignore
+          component: ()=>import('../components/articleFile.vue'),
           name: 'AritcleFile',
           meta: { class: 'article-file' }
 
@@ -55,14 +56,14 @@ const router = createRouter({
           //   default: User,
           //   nav: NavUser
           // },
-          component: User,
+          component:()=> import('../components/User.vue'),
           name: 'userManger',
           meta: { class: 'user-manger' }
 
         },
         {
           path: 'user/:id(.*)',
-          component: UserInfo,
+          component: ()=> import('../components/UserInfo.vue'),
           name: 'user',
           meta: { class: 'user-info' }
 
@@ -72,7 +73,7 @@ const router = createRouter({
     },
     {
       path: '/member',
-      component: Member,
+      component: ()=>import('../components/member.vue'),
       name: 'member',
       meta: { class: 'member' },
       children: [
@@ -84,15 +85,20 @@ const router = createRouter({
         {
           path: 'mobile',
           name: 'mobile',
-          component: Mobile
+          component: ()=>import('../components/mobile.vue')
         },
         {
           path: 'email',
           name: 'email',
-          component: Email
+          component: ()=>import('../components/email.vue')
         }
       ]
     },
+    {
+      path: '/login',
+      component: ()=>import('../components/login.vue'),
+      name: 'login',
+    },    
     {
       path: "/:any(.*)",
       component: NotFound,
@@ -102,5 +108,29 @@ const router = createRouter({
 
   ]
 })
+ router.beforeEach( (to,from ,next)=>{
+// //  return await new Promise(resolve=>{
+// //     resolve(true)
+// //  })
+  console.log(to.name)
+  // if(to.name == 'article'){
+  //   next({name:'login'})
+  // } 
+  next()
+  
+
+  
+})
+router.beforeResolve((to, from) => {
+  console.log("beforeResolve")
+})
+
+router.afterEach((to, from , fail)=>{
+  console.log("afterEach")
+  if(!fail){
+    console.log('jiexichenggong')
+  }
+})
+
 export default router;
 export { path1 }

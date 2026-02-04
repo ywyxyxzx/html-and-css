@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import {computed } from 'vue'
 import router from './router';
 import {path1} from './router';
 console.log(router)
 let view = computed(() => {
-    
+   // @ts-ignore
     const route = router.routes.find(route1 => route1.path === path1.value);
     const c = route?.component
     return c;
