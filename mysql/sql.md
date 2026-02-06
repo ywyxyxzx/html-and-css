@@ -120,3 +120,63 @@ SELECT @time;
 set @time= time(now());
 select time_to_sec(@time),sec_to_time(time_to_sec(@time));
 
+select datediff(now(), DateofBirth) from stu; // 相差天数
+select timestampdiff(YEAR, DateofBirth, now()) from stu; // 相差年数
+select timestampdiff(MONTH, DateofBirth, now()) from stu; // 相差月数
+select timestampdiff(DAY, DateofBirth, now()) from stu; // 相差天数
+select timestampdiff(HOUR, DateofBirth, now()) from stu; // 相差小时
+SELECT timediff(time(now()),time(DateofBirth)) from stu;
+
+// 查询
+SELECT * FROM `stu` WHERE DateofBirth BETWEEN '1990-01-01' AND '1999-01-01';
+SELECT * FROM `stu` order by DateofBirth desc;
+SELECT * FROM `stu` order by DateofBirth desc limit 1;
+SELECT * FROM `stu` WHERE DateofBirth = (select DateofBirth from stu ORDER BY DateofBirth desc limit 1); // 避免生日相同
+SELECT count(id),class_id FROM `stu`GROUP by class_id;
+SELECT count(id),class_id FROM `stu` WHERE Year(DateofBirth)>1980 AND YEAR(DateofBirth)<2000 GROUP by class_id ;
+SELECT count(id) as total,class_id FROM `stu` WHERE Year(DateofBirth)>1980 AND YEAR(DateofBirth)<2000 GROUP by class_id ORDER BY total Desc;
+SELECT count(id) as total,class_id FROM `stu` WHERE Year(DateofBirth)>1980 AND YEAR(DateofBirth)<2000 GROUP by class_id ORDER BY total Desc LIMIT 1;
+// 大于20岁 女
+SELECT * FROM `stu` WHERE Timestampdiff(Year,DateofBirth,now())>=20 AND sex = 2;
+// 大于20岁 女，人最多的班级
+SELECT  count(id) as total, class_id FROM `stu` WHERE Timestampdiff(Year,DateofBirth,now())>=20 AND sex = 2 GROUP by class_id;
+SELECT  count(id) as total, class_id FROM `stu` WHERE Timestampdiff(Year,DateofBirth,now())>=20 AND sex = 2 GROUP by class_id ORDER BY total desc LIMIT 1;
+
+// 加时间
+update stu set DateofBirth = addtime(DateofBirth, '8:00:00');
+update stu set DateofBirth = timestamp(DateofBirth, '8:00:00') where id = 3;
+// 7天后日期 7 天前日期
+SELECT date_add(now(), INTERVAL 7 Day)
+SELECT date_add(now(), INTERVAL -7 Day) // Year, Month , Day , Hour, Minute
+SELECT date_add(now(), INTERVAL '3 8' HOUR_MINUTE)
+SELECT date_add(now(), INTERVAL '3:08' HOUR_MINUTE)
+
+// 月初月末
+SELECT last_day(now())
+// 往前减
+SELECT date_sub(now(), INTERVAL 5 Day);
+// 月里多少天
+SELECT DayofMonth(now())
+// 月初
+SELECT date_sub(now(),INTERVAL DayofMonth(now())-1 Day)
+Alter table article add pub_time dateTime  DEFAULT now()
+
+Alter table article add status ENUM('1','2','3');
+update article set status=1;
+
+// 本月
+set @start= date_sub(now(), INTERVAL DayofMonth(now())-1 Day);
+set @end =  last_day(now());
+SELECT * FROM `article` WHERE pub_time>@start AND pub_time<=@end;
+// 3个月内
+set @during= date_sub(now(), INTERVAL 3 MONTH);
+select @during;
+SELECT * FROM `article` WHERE pub_time<=@during;
+// 大宇20岁
+select * from stu WHERE DateofBirth> date_sub(now(), INTERVAL 20 Year);
+
+// 星期 DayofWeek Weekday
+SELECT Dayofweek(now()) sun = 1  
+SELECT date_add(now(), INTERVAL 3-Dayofweek(now()) Day) //周二日期
+SELECT Weekday(now()) mod = 0
+SELECT date_add(now(), INTERVAL 1-weekday(now()) Day) // 周二日期
