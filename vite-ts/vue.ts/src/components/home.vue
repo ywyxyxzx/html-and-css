@@ -1,6 +1,8 @@
 <script setup  lang="ts">
 import { onBeforeRouteLeave } from 'vue-router';
+import searchBar from '../components/search-bar.vue';
 import Nav from './nav.vue';
+import {ref} from 'vue';
 
 onBeforeRouteLeave(async (to, from, next)=>{
     await new Promise((resolve)=>{
@@ -16,14 +18,14 @@ onBeforeRouteLeave(async (to, from, next)=>{
     
     
 })
-
+const searchBarContent = ref('');
 </script>
 <template>
 <Nav />
 home
-    
+    <searchBar v-model="searchBarContent"></searchBar>
 
-
+   {{ searchBarContent }}
 </template>
 <style scoped>
 
