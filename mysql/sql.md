@@ -306,3 +306,16 @@ commit;// 最后得提交生效
 start Transaction;
 ... // 执行就生效，但是可以rollback
 Rollback;
+
+# 外键约束 
+# CONSTRAINT 外键名字 子表名_主表名 
+# FOREIGN KEY(外键列) 
+# REFERENCES 主表名（主表关联列） 
+# 外键产生的行为(删除/更新行为) ON DELETE CASCADE 
+create table stu2(id int PRIMARY KEY AUTO_INCREMENT,sname char(30) NOT NULL, class_id int DEFAULT NULL, CONSTRAINT stu2_class FOREIGN KEY(class_id) REFERENCES class(id) ON  DELETE CASCADE) 
+
+# 添加外键
+ALTER TABLE stu ADD CONSTRAINT stu_class FOREIGN KEY(class_id) REFERENCES class(id) ON DELETE CASCADE
+
+# 删除外键
+ALTER TABLE stu DROP FOREIGN KEY stu_class

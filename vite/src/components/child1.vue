@@ -1,4 +1,11 @@
 <script setup>
+import {ref} from 'vue';
+import {useRoute} from 'vue-router'
+const route = useRoute();
 </script>
-<template>111</template>
+<template>
+    {{ route.query.xd }}
+    {{  route.query.hd }}
+
+</template>
 <style></style>

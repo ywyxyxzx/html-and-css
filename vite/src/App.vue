@@ -3,12 +3,12 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <div>
-    <router-link :to="{'name': 'one'}">1</router-link>
-     <router-link :to="{'name': 'two'}">2</router-link>
-      <router-link :to="{'name': 'three'}">3</router-link>
+  <div class="nav">
+    <router-link :to="{name: 'one', query: {xd:'xd1111111', state: 'xdclass'}}">111</router-link>
+     <router-link :to="{name: 'two'}">222</router-link>
+      <router-link :to="{name: 'three'}">333</router-link>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+
   <router-view></router-view>
 </template>
 
@@ -24,5 +24,11 @@ import HelloWorld from './components/HelloWorld.vue'
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+.nav a{
+  padding-right:10px;
+}
+.nav-link-active{
+  color:orange
 }
 </style>

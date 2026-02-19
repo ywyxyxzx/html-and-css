@@ -30,7 +30,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+     history: createWebHistory(),
+    linkActiveClass: 'nav-link-active',
     routes:routes
 })
 export default router;
