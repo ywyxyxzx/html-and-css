@@ -1,14 +1,13 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+  
 </script>
 
 <template>
   <div class="nav">
-    <router-link :to="{name: 'one', query: {xd:'xd1111111', state: 'xdclass'}}">111</router-link>
+    <router-link :to="{name: 'one', query: {xd:'xd1111111'}}">111</router-link>
      <router-link :to="{name: 'two'}">222</router-link>
       <router-link :to="{name: 'three'}">333</router-link>
   </div>
-
   <router-view></router-view>
 </template>
 

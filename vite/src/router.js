@@ -12,18 +12,19 @@ const routes = [
     {
         path: '/one',
         name: 'one',
-        component: child1
+        component: ()=>import("./components/child1.vue")
     },
 
     {
         path: '/two',
         name: 'two',
-        component: child2,
+        component: ()=>import('./components/child2.vue'),
         children: [
             {
                 path: 'three',
                 name: 'three',
-                component: child3
+                component: ()=>import('./components/child3.vue'),
+                meta:{isAuth:true}
             }
         ]
     }
@@ -34,4 +35,18 @@ const router = createRouter({
     linkActiveClass: 'nav-link-active',
     routes:routes
 })
+
+router.beforeEach((to, from , next)=>{
+
+    if(to.meta && to.meta.hasOwnProperty("isAuth")){
+        if(to.meta.isAuth){
+            next()
+        } else {
+            alert('请先登录')
+        }
+    } else {
+        next()
+    }
+})
+
 export default router;
