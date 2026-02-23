@@ -10,7 +10,7 @@ import  {useCounterStore}  from '../store/counter.js';
     1child
     <hr/>
 <p>{{ counter.count }}</p>
-
+<button @click="counter.increment()">++</button>
     <hr/>
 
     {{ route.query.xd }}
