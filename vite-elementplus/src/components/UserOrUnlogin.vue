@@ -1,9 +1,9 @@
 <script setup>
 import { useUserStore } from "@/store/user.js";
-import { useModalStore } from "@/store/modal.js";
+import { signUpModalStore} from '@/store/modal';
 
 const user = useUserStore();
-const modal = useModalStore();
+const modal = signUpModalStore();
 </script>
 
 <template>
