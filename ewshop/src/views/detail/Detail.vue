@@ -3,7 +3,7 @@
 </script>
 
 <template>
-helloworld
+
 </template>
 
 <style scoped>
