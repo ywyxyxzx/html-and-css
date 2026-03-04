@@ -9,27 +9,42 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: home
+    component: home,
+    meta: {
+      title: '首页'
+    }
   },
   {
     path: '/category',
     name: 'category',
-    component: category
+    component: category,
+    meta: {
+      title: '分类'
+    }
   },
   {
     path: '/detail',
     name: 'detail',
-    component: detail
+    component: detail,
+    meta: {
+      title: '详情'
+    }
   },
   {
     path: '/profile',
     name: 'profile',
-    component: profile
+    component: profile,
+    meta: {
+      title: '个人中心'
+    }
   },
   {
     path: '/shopCart',
     name: 'shopCart',
-    component: shopCart
+    component: shopCart,
+    meta: {
+      title: '购物车'
+    }
   },
 ]
 
@@ -37,5 +52,12 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to,from, next)=>{
+  next();
+  document.title = to.meta.title;
+})
+
+
 
 export default router
