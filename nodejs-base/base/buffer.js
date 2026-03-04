@@ -43,6 +43,8 @@
 // const buf1 = Buffer.from('ABC');
 // const buf2 = Buffer.from('414243', 'hex'); // hex解码
 // const buf3 = Buffer.from('ABCD');
+
+// 相等
 // console.log(buf1);
 // console.log(buf2);
 // console.log(buf1.equals(buf2));
@@ -52,5 +54,19 @@
 
 // 查找指定值
 // console.log('---------------------------------------------')
-const buf1 = Buffer.from('ABC');
-console.log(buf1.indexOf('B')) // 1
+// const buf1 = Buffer.from('AABC');
+// console.log(buf1.indexOf('A')) // 1
+// console.log(buf1.lastIndexOf('A')) // 0
+
+// slice
+// const buf = Buffer.from('abcdefghi');
+// console.log(buf.slice(2,7).toString());//cdefg
+
+const buf = Buffer.from('abcdefghi');
+const buf2 = Buffer.from('test');
+//  console.log(buf.copy(buf2));
+//  console.log(buf2.toString());
+console.log(buf2.copy(buf,2));
+console.log(buf.toString());
+console.log(buf2.copy(buf,2, 1, 3));
+console.log(buf.toString());
