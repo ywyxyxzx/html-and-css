@@ -21,8 +21,8 @@ export default function request(config) {
     // 响应拦截
        instance.interceptors.response.use( res=>{
         // 认证
-        debugger
-        console.log(res)
+      
+        console.log('response:',res)
         return res.data? res.data: res
     },  err=>{
 

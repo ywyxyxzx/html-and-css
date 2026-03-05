@@ -1,39 +1,21 @@
 <script setup>
-// @ is an alias to /src
-
-
-// export default {
-//   name: 'HomeView',
-
-//   data:()=>{
-//     return {
-//       imgsrc: require('assets/logo.png')
-//     }
-//   },
-//   components: {
-
-//   }
-// }
 import {onMounted,ref} from 'vue';
-// import {getHomeAllData} from 'network/home.js';
-// const bannerList = ref([]);
-// onMounted(()=>{
-//   console.log('home11111111111')
-
-//   getHomeAllData().then(res=>{
-//     console.log(res)
-//     bannerList.value = res.slides
-
-//     console.log(bannerList.value)
-//   }).catch(err=>{
-//     console.log(err)
-//   })
-// })
-import Navbar from 'components/common/navbar/navbar.vue'
+import Navbar from 'components/common/navbar/navbar.vue';
+import Recomend from 'views/home/Recomend.vue';
 import { useRoute } from 'vue-router';
+import {getHomeAllData} from 'network/home.js';
 const route = useRoute();
+const recommendList = ref([]);  
+onMounted(() => {
+  getHomeAllData().then(res=>{
+    console.log(res, res.goods.data)
+    recommendList.value= res.goods.data
 
 
+  }).catch(err=>{
+    console.log(err)
+  })
+})
 
 </script>
 <template>
@@ -52,7 +34,16 @@ const route = useRoute();
     <template v-slot:default>
        {{route.meta.title}}
     </template>
+
+    
   </Navbar>
+  
+  <div class="banner">
+     <img src="~assets/images/1.png" alt="Banner">
+  </div>
+  <Recomend :recommendList="recommendList"></Recomend>
+
+
 </div>
 
 
