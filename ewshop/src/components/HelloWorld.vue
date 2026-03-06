@@ -3,8 +3,9 @@
 </script>
 
 <template>
-helloworld
+
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+
 </style>

@@ -9,7 +9,7 @@ onMounted(async () => {
     const response = await axios.get(
       "https://api-v2.xdclass.net/api/card/v1/list"
     );
-    debugger
+    
       console.log(response.data.data)
     data.value = response.data.data; // 将请求到的数据赋值给cards
   

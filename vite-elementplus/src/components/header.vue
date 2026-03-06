@@ -9,7 +9,7 @@ import Login from '../components/Login.vue';
 
     const searchbutton = ref(null)
     const searchText=()=>{
-        debugger
+        
         alert(1313)
     }
     const input = ref("")

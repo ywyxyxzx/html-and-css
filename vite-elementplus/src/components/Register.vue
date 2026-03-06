@@ -20,7 +20,7 @@ function handleFinish() {
     });
     return;
   } else {
-    debugger
+    
     // 账号验证
     console.log(user.users.account, user.users.account.value, account.value)
 

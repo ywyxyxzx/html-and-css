@@ -10,10 +10,12 @@ module.exports = defineConfig({
         'store': '@/store',
         'network': '@/network',
       }
-    }
+    },
+    devtool: 'source-map'
   },
   publicPath: './',
-  lintOnSave: false
+  lintOnSave: false,
+
 })
 // module.exports = {
  

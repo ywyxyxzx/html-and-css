@@ -17,11 +17,11 @@ const actions= {
 //操作state中的数据
 const mutations={
   ADD(state, value) {
-    debugger
+    
     state.count += value;
   },
   REDUCE(state, value) {
-      debugger
+      
     state.count -= value;
   },
 }

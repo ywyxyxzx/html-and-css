@@ -1,14 +1,16 @@
 <script setup>
-
+   
 </script>
 
 
 <template>
-  <div class="main-wrap w-full">
-    <div class="router-wrap">
-      <router-view />
-    </div>
-  
+  <div class="main-wrap w-full position-relative">
+
+      <div class="router-wrap">
+        <router-view />
+      </div>
+ 
+
   
     <div id="nav" class="flex bg-[#f6f6f6]  w-full ">
       <router-link :to="{ path: '/' }" class="tab-bar-item">
