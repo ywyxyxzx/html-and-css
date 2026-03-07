@@ -34,7 +34,7 @@ const tabClick = (tab) => {
     .tab-control{
         color:var(--color-text);
          position: sticky;
-              top: 50px;
+              top: 45px;
         left:0;
          z-index:99;
          box-shadow: 0 2px 0px rgba(100, 100, 100, 0.1);

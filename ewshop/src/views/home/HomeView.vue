@@ -91,12 +91,19 @@ onMounted(async () => {
   //},1000
 
 
-  bscroll.on('pullingUp', () => {
+  bscroll.on('pullingUp', async () => {
      console.log('上拉加载更多.....');
      goods[currentGoodsType.value].page += 1;
-       getHomeGoodsFun();
-       // 完成上拉， 等数据请求完成， 要将新数据展示出来
-       bscroll.finishPullUp();
+     bscroll.disable();
+     
+     await  getHomeGoodsFun();
+     
+      setTimeout(()=>{
+        bscroll.enable();
+        bscroll.finishPullUp();
+      },500)
+    // 完成上拉， 等数据请求完成， 要将新数据展示出来
+    
   })
 })
 
@@ -121,7 +128,9 @@ const tabChanged = async ($event) => {
 
 }
 
-
+const bTop = ()=>{
+  bscroll.scrollTo(0, 0, 300)
+}
 
 
 </script>
@@ -144,7 +153,7 @@ const tabChanged = async ($event) => {
 
 
     </Navbar>
-    <!-- <goTop /> -->
+    <goTop v-show="isTabFixed" @bTop ="bTop"/>
   <TabControl :tabList="tabList" :currentTitle="tabCurrentTitle" @tabChange="tabChanged" v-show="isTabFixed"></TabControl>
     <div class="wrapper">
       <div class="content">
