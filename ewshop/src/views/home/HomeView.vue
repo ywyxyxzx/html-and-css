@@ -1,11 +1,11 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch, watchEffect, nextTick } from 'vue';
 import Navbar from 'components/common/navbar/navbar.vue';
-import Recomend from 'views/home/Recomend.vue';
+import Recomend from 'views/home/content/Recomend.vue';
 import TabControl from 'components/content/tabControl.vue';
 import goTop from 'components/common/goTop.vue';
 import HomeGoodslist from 'components/content/homeGoodslist.vue';
-import HomeSwiper from 'views/home/HomeSwiper.vue'
+import HomeSwiper from 'views/home/content/HomeSwiper.vue'
 import { useRoute } from 'vue-router';
 import { getHomeAllData, getHomeGoods } from 'network/home.js';
 import BScroll from '@better-scroll/core';
