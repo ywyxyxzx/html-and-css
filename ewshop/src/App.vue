@@ -31,7 +31,10 @@
         <div>分类</div>
       </router-link>
       <router-link :to="{ path: '/shopCart' }" class="tab-bar-item">
-        <div><i class="iconfont icon-gouwuchezhengpin"></i></div>
+        
+        <van-badge :content="10" max="9">
+          <div><i class="iconfont icon-gouwuchezhengpin"></i></div>
+        </van-badge>
         <div>购物车</div>
       </router-link>
       <router-link :to="{ path: '/profile' }" class="tab-bar-item">
