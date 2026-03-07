@@ -5,6 +5,7 @@ import Recomend from 'views/home/Recomend.vue';
 import TabControl from 'components/content/tabControl.vue';
 import goTop from 'components/common/goTop.vue';
 import HomeGoodslist from 'components/content/homeGoodslist.vue';
+import HomeSwiper from 'views/home/HomeSwiper.vue'
 import { useRoute } from 'vue-router';
 import { getHomeAllData, getHomeGoods } from 'network/home.js';
 import BScroll from '@better-scroll/core';
@@ -16,8 +17,15 @@ const recommendList = ref([]);
 const tabList = ref(['热销', '新书', '精选']);
 const tabCurrentTitle = ref('热销');
 let bscroll = reactive({});
-let isTabFixed = ref(false)
+const isTabFixed = ref(false)
 const banRef = ref(null)
+const bannersList = ref([])
+let bannerLocalList = [
+  require('assets/images/1.png'),
+  require('assets/images/2.jpg'),
+  require('assets/images/3.jpg'),
+]
+
 
 // 商品列表
 const goods = reactive({
@@ -53,6 +61,11 @@ let getHomeDataFun = async () => {
   await getHomeAllData().then(res => {
     console.log(res, res.goods.data)
     recommendList.value = res.goods.data
+    bannersList.value = res.slides.map((v,i) => {
+      if(v.hasOwnProperty('img_url')) v.img_url = bannerLocalList[i]
+      return v
+    })
+
   }).catch(err => {
     console.log(err)
   })
@@ -150,16 +163,17 @@ const bTop = ()=>{
       <template v-slot:default>
         {{ route.meta.title }}
       </template>
-
-
     </Navbar>
     <goTop v-show="isTabFixed" @bTop ="bTop"/>
   <TabControl :tabList="tabList" :currentTitle="tabCurrentTitle" @tabChange="tabChanged" v-show="isTabFixed"></TabControl>
     <div class="wrapper">
       <div class="content">
         <div ref="banRef">
-          <div class="banner">
+           <!-- <div class="banner">
             <img src="~assets/images/1.png" alt="Banner" class="w-full h-auto">
+          </div> -->
+           <div class="banner">
+           <HomeSwiper :banners= "bannersList"></HomeSwiper> 
           </div>
           
           <Recomend :recommendList="recommendList"></Recomend>
