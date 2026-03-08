@@ -18,7 +18,7 @@ const goodClick = (itemId)=>{
 
 <template>
 <div class="goods-item w-[40%]">
-    <img src="~assets/images/11.png" alt="" class="w-[80%] mx-auto pb-2">
+    <img v-lazy="'https://img3m2.ddimg.cn/27/0/29874762-1_l_1744618930.jpg'" alt="" class="w-[80%] mx-auto pb-2">
         <div class="goods-info">
             <p>{{product?.title}}</p>
             <span class="price"><small>￥</small>{{product?.price}}</span>

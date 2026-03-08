@@ -12,6 +12,13 @@ import * as vantModule from './vantModule.js'
 const app = createApp(App)
 // vant
 Object.keys(vantModule).forEach(key =>{
+    if(key == 'Lazyload'){
+        app.use(vantModule[key],{
+            lazyComponent: true,
+            loading: require('./assets/images/default.png')
+        })
+        return
+    }
     app.use(vantModule[key])
 })
 

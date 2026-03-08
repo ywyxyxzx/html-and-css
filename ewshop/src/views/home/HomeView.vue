@@ -23,9 +23,9 @@ const isTabFixed = ref(false)
 const banRef = ref(null)
 const bannersList = ref([])
 let bannerLocalList = [
-  require('assets/images/1.png'),
-  require('assets/images/2.jpg'),
-  require('assets/images/3.jpg'),
+  'https://backend-permanent.ddimg.cn/adsmart/2026/2/28/202602281515345830.jpg',
+  'https://backend-permanent.ddimg.cn/adsmart/2026/2/26/2026022611435277867.jpg',
+  'https://backend-permanent.ddimg.cn/adsmart/2026/2/26/2026022613354578612.jpg'
 ]
 
 

@@ -7,14 +7,14 @@
   <div class="main-wrap w-full position-relative">
 
       <div class="router-wrap">
-        <router-view >
+        <!-- <router-view >
           <template #default="{ Component }">
           <KeepAlive>
             <component :is="Component" />
           </KeepAlive>
         </template>
-        </router-view>
-
+        </router-view> -->
+      <router-view ></router-view>
 
         
       </div>
