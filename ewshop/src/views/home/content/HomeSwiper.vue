@@ -16,7 +16,6 @@ let getItemStyle = (imgSrl)=>{
 }
 
 
-console.log(5555, props.banners[0])
 </script>
 
 <template>

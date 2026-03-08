@@ -1,5 +1,5 @@
 import axios from 'axios';
-export default function request(config) {
+export function request(config) {
     const instance = axios.create({
         baseURL: 'https://api.shop.eduwork.cn',
         timeout: 5000

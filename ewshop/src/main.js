@@ -6,16 +6,14 @@ import store from './store'
 import './base.css';
 import './tailMain.css';
 import "vant/lib/index.css"
-import { Swipe, SwipeItem ,Badge} from 'vant';
+import * as vantModule from './vantModule.js'
 
 // app init
 const app = createApp(App)
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-//
-app.use(Swipe)
-app.use(SwipeItem)
-app.use(Badge)
+// vant
+Object.keys(vantModule).forEach(key =>{
+    app.use(vantModule[key])
+})
 
 // app.use(LazyLoad, {
 //     lazyComponent: true,

@@ -1,4 +1,4 @@
-import request from './require';
+import {request} from './require.js';
 
 export function getHomeAllData() {
     return request({

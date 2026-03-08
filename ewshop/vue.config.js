@@ -13,7 +13,7 @@ module.exports = defineConfig({
     },
     devtool: 'source-map'
   },
-  publicPath: './',
+  publicPath: '/',
   lintOnSave: false,
 
 })
