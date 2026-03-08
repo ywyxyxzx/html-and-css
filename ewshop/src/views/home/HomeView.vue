@@ -9,6 +9,7 @@ import HomeSwiper from 'views/home/content/HomeSwiper.vue'
 import { useRoute } from 'vue-router';
 import { getHomeAllData, getHomeGoods } from 'network/home.js';
 import BScroll from '@better-scroll/core';
+
 import Pullup from '@better-scroll/pull-up';
 
 BScroll.use(Pullup)

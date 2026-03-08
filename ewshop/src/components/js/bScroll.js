@@ -1,7 +1,7 @@
 import BScroll from '@better-scroll/core';
 import Pullup from '@better-scroll/pull-up';
 import { nextTick } from 'vue';
-BScroll.use(Pullup);
+
 
 let bscroll;
 const initBscroll = ({
@@ -10,6 +10,8 @@ const initBscroll = ({
     bsOnScroll,
     bsOnPullingUp
 }= {}) => {
+   
+  
     const defaultCfg = {
         probeType: 3,  // 0, 1, 2, 3, 3 只要在运运就触发scroll事件
         click: true, // 是否允许点击
@@ -17,11 +19,13 @@ const initBscroll = ({
         preventDefault: false,
     }
     const curConfig = Object.assign(defaultCfg, config)
-    bscroll = new BScroll(document.querySelector(`.${className}`, curConfig));
+    
+    BScroll.use(Pullup);
+    bscroll = new BScroll(document.querySelector(`.${className}`), curConfig);
 
     bscroll.on('scroll', (position) => {
         // console.log(position)
-        bsOnScroll();
+        bsOnScroll(position);
     });
 
     bscroll.on('pullingUp', async () => {
@@ -54,14 +58,10 @@ const bsEnable = () => {
 const bsDisable = () => {
     bscroll.disable();
 }
-const bsOnScroll = () => {
-
-}
-
-
-
 
 export {
+    BScroll,
+    Pullup,
     initBscroll,
     bsRresh,
     bsFinishPullUp,
