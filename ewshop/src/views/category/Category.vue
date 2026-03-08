@@ -3,7 +3,7 @@ import { getCategory, getCategoryGoods } from 'network/category.js';
 
 import Navbar from 'components/common/navbar/navbar.vue';
 import goTop from 'components/common/goTop.vue';
-import { useRoute, onBeforeRouteLeave } from 'vue-router';
+import { useRoute, onBeforeRouteLeave , useRouter} from 'vue-router';
 import { ref, onMounted, computed, reactive, watch ,watchEffect } from 'vue'
 
 import {
@@ -14,6 +14,7 @@ import {
     bsDisable,
 } from 'components/js/bScroll.js';
 const route = useRoute();
+const router = useRouter()
 //data
 debugger
 const orderByList = ['sales', 'price', 'comments_count'];
@@ -86,6 +87,12 @@ watch(goodsList, (nv, ov) => {
 const bTop = ()=>{
     bscroll.scrollTo(0, 0, 300)
 }
+const goodClick = (itemId)=>{
+    router.push({
+        path: '/detail',
+        query: {itemId}
+    })
+}
 
 onMounted(() => {
     getCategoryFun();
@@ -155,7 +162,8 @@ onBeforeRouteLeave(()=>{
         <div class="goodslist" ref="goodsDomRef">
             <div class="content" ref="goodsContentDomRef">
                 <van-card :num="item?.comments_count" :tag="item.comments_count > 0 ? '流行' : ''" :price="item?.price"
-                    desc="" :title="item?.title" :thumb="misstu" v-for="item in showGoods" />
+                    desc="" :title="item?.title" :thumb="misstu" v-for="item in showGoods" 
+                    @click="goodClick(item?.id)"/>
             </div>
         </div>
 

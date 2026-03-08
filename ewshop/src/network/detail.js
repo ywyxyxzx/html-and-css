@@ -1,4 +1,5 @@
-import {request} from './request';
+
+import {request} from './require.js';
 
 export function getDetail(id) {
     return request({

@@ -14,6 +14,7 @@ import Pullup from '@better-scroll/pull-up';
 
 BScroll.use(Pullup)
 const route = useRoute();
+
 const recommendList = ref([]);
 const tabList = ref(['热销', '新书', '精选']);
 const tabCurrentTitle = ref('热销');

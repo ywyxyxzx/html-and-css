@@ -27,7 +27,7 @@ const routes = [
     name: 'detail',
     component: detail,
     meta: {
-      title: '详情'
+      title: '商品页'
     }
   },
   {

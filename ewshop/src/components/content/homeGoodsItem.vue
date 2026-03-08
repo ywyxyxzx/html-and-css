@@ -1,11 +1,19 @@
 <script setup>
 import {defineProps} from 'vue';
+
 const props = defineProps({
     product: {
         type: Object,
         default: () => ({})
     }
 })
+const goodClick = (itemId)=>{
+    router.push({
+        path: '/detail',
+        query: {itemId}
+    })
+}
+
 </script>
 
 <template>
