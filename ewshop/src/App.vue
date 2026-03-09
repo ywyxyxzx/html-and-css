@@ -56,6 +56,7 @@
       display:flex;
     flex:1;
     overflow-y: auto;
+        flex-direction: column;
    
   }
 
