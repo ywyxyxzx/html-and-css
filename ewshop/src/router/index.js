@@ -4,7 +4,8 @@ const category = ()=> import('../views/category/Category.vue')
 const detail = ()=> import('../views/detail/Detail.vue')
 const profile = ()=> import('../views/profile/Profile.vue')
 const shopCart = ()=> import('../views/shopCart/ShopCart.vue')
-
+const register = ()=> import('../views/profile/Register.vue')
+const login = ()=> import('../views/profile/Login.vue')
 const routes = [
   {
     path: '/',
@@ -27,7 +28,23 @@ const routes = [
     name: 'detail',
     component: detail,
     meta: {
-      title: '商品页'
+      title: '商品详情'
+    }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: register,
+    meta: {
+      title: '用户注册'
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: login,
+    meta: {
+      title: '用户登录'
     }
   },
   {

@@ -25,7 +25,7 @@ export function request(config) {
         console.log('response:',res)
         return res.data? res.data: res
     },  err=>{
-
+        debugger
     })
      return instance(config);
 }
