@@ -21,11 +21,9 @@ const onSubmit = () => {
     if (userInfo.password != userInfo.password_confirmation) {
         showNotify({ message: '两次密码不一致...' });
     } else {
-        debugger
         register(userInfo).then(res => {
             console.log(999, res)
             if (!res) {
-                debugger
                 return
             }
             if (res.hasOwnProperty('status') && res.status == '201') {

@@ -79,7 +79,7 @@ watchEffect(() => {
 })
 
 watch(goods, (nv, ov) => {
-  // debugger
+  //
   bscrollRresh()
 }, {
   deep: true

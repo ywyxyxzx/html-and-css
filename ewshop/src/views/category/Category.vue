@@ -16,7 +16,7 @@ import {
 const route = useRoute();
 const router = useRouter()
 //data
-debugger
+
 const orderByList = ['sales', 'price', 'comments_count'];
 const misstu = require('assets/images/22.png')
 
@@ -78,7 +78,7 @@ watchEffect(() => {
 })
 
 watch(goodsList, (nv, ov) => {
-  // debugger
+  //
   bsRresh()
 }, {
   deep: true

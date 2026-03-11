@@ -1,7 +1,25 @@
 <script setup>
 import Navbar from 'components/common/navbar/navbar.vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { logout, getUser} from 'network/user.js'
+import { showToast, showSuccessToast } from 'vant';
 const route = useRoute();
+const router = useRouter()
+
+const tologout = ()=>{
+    logout().then(res=>{
+        
+        if(res && res.status == '204') {
+            showSuccessToast("退出成功");
+            window.localStorage.removeItem('token', '');
+            // store.commit('setIsLogin', false);
+
+            setTimeout(()=>{
+                router.push({path:'/login'});
+            }, 500);
+        }
+    }).catch();
+}
 </script>
 
 <template>
@@ -10,6 +28,11 @@ const route = useRoute();
         {{route.meta.title}}
     </template>
 </Navbar>
+
+
+<div style="margin: 16px;">
+    <van-button round block  color="#42b983" @click="tologout">退出登录</van-button>
+</div>
 </template>
 
 <style scoped>
