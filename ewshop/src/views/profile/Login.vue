@@ -5,8 +5,11 @@ import { useRoute, useRouter } from 'vue-router';
 import { showNotify, closeNotify } from 'vant';
 import { showToast, showSuccessToast } from 'vant';
 import {login } from 'network/user.js';
+import {useStore} from 'vuex';
+
 const route = useRoute();
 const router = useRouter()
+const store = useStore()
 const userinfo = reactive({
     email: '',
     password: '',
@@ -18,13 +21,14 @@ const onSubmit = () => {
         if(!res){
             return
         }
-        // ywyxyx@lmonkey.com
+        // ywyxyx@lmonkey.com use123
         //eduwork2@lmonkey.com   use123
         console.log(res.access_token);
         //将token保存在本地 window.localStorage   setItem(key, value) getItem(key)
         window.localStorage.setItem('token', res.access_token);
        // 在vuex isLogin
-       /// store.commit('setIsLogin', true);
+       
+        store.commit('setIsLogin', true);
 
         showSuccessToast('登录成功');
 

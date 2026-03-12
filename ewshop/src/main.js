@@ -2,12 +2,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import './base.css';
 import './tailMain.css';
 import "vant/lib/index.css"
 import * as vantModule from './vantModule.js'
-
+import storeVuex from './store/index';
 // app init
 const app = createApp(App)
 // vant
@@ -26,4 +25,4 @@ Object.keys(vantModule).forEach(key =>{
 //     lazyComponent: true,
 //     loading: require('./assets/images/default.png')
 // })
-app.use(store).use(router).mount('#app')
+app.use(storeVuex).use(router).mount('#app')

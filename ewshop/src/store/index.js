@@ -1,14 +1,26 @@
 import { createStore } from 'vuex'
 
-export default createStore({
+const storeVuex = createStore({
   state: {
+    user: {
+      isLogin: !!window.localStorage.getItem('token')
+    } 
+      
   },
   getters: {
   },
   mutations: {
+    setIsLogin(state, payload) {
+      
+        state.user.isLogin = payload;
+    },
   },
   actions: {
+    // setIsLogin(context, payload){
+    //   context.commit('setIsLogin', )
+    // }
   },
   modules: {
   }
 })
+export default storeVuex;

@@ -1,4 +1,8 @@
 import { createRouter, createWebHistory,createWebHashHistory  } from 'vue-router'
+import {useStore} from 'vuex';
+import { showToast, showSuccessToast } from 'vant';
+import store from '../store';
+
 const home = ()=> import('../views/home/HomeView.vue')
 const category = ()=> import('../views/category/Category.vue')
 const detail = ()=> import('../views/detail/Detail.vue')
@@ -6,6 +10,7 @@ const profile = ()=> import('../views/profile/Profile.vue')
 const shopCart = ()=> import('../views/shopCart/ShopCart.vue')
 const register = ()=> import('../views/profile/Register.vue')
 const login = ()=> import('../views/profile/Login.vue')
+
 const routes = [
   {
     path: '/',
@@ -52,7 +57,8 @@ const routes = [
     name: 'profile',
     component: profile,
     meta: {
-      title: '个人中心'
+      title: '个人中心',
+      isAuthRequired: true
     }
   },
   {
@@ -71,8 +77,15 @@ const router = createRouter({
 })
 
 router.beforeEach((to,from, next)=>{
-  next();
+  
   document.title = to.meta.title;
+  if(to.meta['isAuthRequired'] && store.state.user.isLogin === false){
+    showToast('请先登录')
+    
+    return next('/login')
+  }
+  next();
+ 
 })
 
 
