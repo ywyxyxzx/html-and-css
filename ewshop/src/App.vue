@@ -1,5 +1,7 @@
 <script setup>
-   
+  import { useStore } from 'vuex';
+  const store = useStore()
+  store.dispatch('updateCart')
 </script>
 
 
@@ -32,7 +34,7 @@
       </router-link>
       <router-link :to="{ path: '/shopCart' }" class="tab-bar-item">
         
-        <van-badge :content="10" max="9">
+        <van-badge :content="store.state.cartCount" max="9">
           <div><i class="iconfont icon-gouwuchezhengpin"></i></div>
         </van-badge>
         <div>购物车</div>

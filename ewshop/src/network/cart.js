@@ -1,4 +1,4 @@
-import {request} from './request';
+import {request} from './require';
 
 
 // 添加购物车
@@ -6,7 +6,7 @@ export function addCart(data) {
     return request({
         url: '/api/carts',
         method: 'post',
-        data
+        data // goods_id , num
     })
 }
 

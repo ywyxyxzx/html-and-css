@@ -1,21 +1,23 @@
 <script setup>
 
-import { useRoute } from 'vue-router';
-import { ref, onMounted, reactive, toRef } from 'vue'
+import { useRoute, useRouter } from 'vue-router';
+import { ref, onMounted, reactive, toRefs} from 'vue'
 import Navbar from 'components/common/navbar/navbar.vue';
 import HomeGoodslist from 'components/content/homeGoodslist.vue';
 import { getDetail } from 'network/detail.js'
+import { addCart } from 'network/cart.js'
+import { showSuccessToast, showFailToast, showToast } from 'vant';
+import storeVuex from '@/store';
 
-const route = useRoute();
-
+const router = useRouter()
 // console.log(route.query)
 const goodId = route.query.itemId;
 const book = reactive({
     detail: {},
     like_goods: [],
 })
-const detail = toRef(book, 'detail')
-const likeGoods = toRef(book, 'like_goods')
+const {detail, likeGoods} = toRefs(book)
+
 const tabActive = ref(0)
 // methods
 const getGoodDetailFun = async () => {
@@ -28,9 +30,24 @@ const getGoodDetailFun = async () => {
     })
 }
 const handleAddCart = ()=>{
-
+    debugger
+    console.log(detail.value.id)
+    addCart({goods_id: detail.value.id, num:1}).then((res)=>{
+        debugger
+        console.log(res)
+        if(res && (res['status'] == '201' || res['status'] == '204')){
+        //    showSuccessToast('添加成功');   
+            storeVuex.dispatch('updateCart',).then(()=>{
+                showToast({
+                    message: '购物车更新成功',
+                    duration: 1000
+                })
+            })
+        }
+    })
 }
 const goToCart= ()=>{
+     router.push({path: 'shopCart'})
 
 }
 
@@ -43,9 +60,7 @@ onMounted(() => {
 
 <template>
     <Navbar>
-        <template v-slot:default>
-            {{ route.meta.title }}
-        </template>
+
     </Navbar>
     <div style="margin-top:45px" class="w-[100vw]">
         <van-image fit="contain" style="margin:0 auto" width="100%" lazy-load

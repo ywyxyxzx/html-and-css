@@ -25,7 +25,8 @@ const routes = [
     name: 'category',
     component: category,
     meta: {
-      title: '分类'
+      title: '分类',
+      
     }
   },
   {
@@ -66,7 +67,8 @@ const routes = [
     name: 'shopCart',
     component: shopCart,
     meta: {
-      title: '购物车'
+      title: '购物车',
+      isAuthRequired: true
     }
   },
 ]
@@ -77,7 +79,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to,from, next)=>{
-  
   document.title = to.meta.title;
   if(to.meta['isAuthRequired'] && store.state.user.isLogin === false){
     showToast('请先登录')

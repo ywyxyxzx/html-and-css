@@ -1,6 +1,6 @@
 <script setup>
-import { useRouter } from 'vue-router'
-const router = useRouter()
+import { useRoute } from 'vue-router'
+const route = useRoute()
 const goback = () => {
     router.go(-1)
 }
@@ -17,7 +17,9 @@ const goback = () => {
                 </slot>
             </div>
             <div class="center">
-                <slot></slot>
+                <slot>
+                    {{route.meta.title}}
+                </slot>
             </div>
             <div class="right">
                 <slot name="right"></slot>

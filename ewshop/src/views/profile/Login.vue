@@ -27,7 +27,7 @@ const onSubmit = () => {
         //将token保存在本地 window.localStorage   setItem(key, value) getItem(key)
         window.localStorage.setItem('token', res.access_token);
        // 在vuex isLogin
-       
+       debugger
         store.commit('setIsLogin', true);
 
         showSuccessToast('登录成功');
