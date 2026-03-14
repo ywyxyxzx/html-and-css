@@ -1,28 +1,30 @@
 <script setup>
 import Navbar from 'components/common/navbar/navbar.vue';
 import { useRouter } from 'vue-router';
-import { addCart, getCart ,modifyCart} from 'network/cart.js'
+import { addCart, getCart, modifyCart, checkedCard } from 'network/cart.js'
 import { useStore } from 'vuex';
-import { onMounted, reactive, toRef, ref, toRefs,computed } from 'vue';
+import { onMounted, reactive, toRef, ref, toRefs, computed } from 'vue';
 import { showSuccessToast, showFailToast, showToast, showLoadingToast, closeToast } from 'vant';
+
 //import homeGoodsItem from 'views/homeGoodsItem/homeGoodsItem.vue'
 const router = useRouter();
 const store = useStore();
 
 const state = reactive({
     cartList: [],
-    result:[]
+    checkedResIdList: [],
+    checkedard: {},
+    isCheckedAll: false
 })
-const checked = ref([]);
-//const cartList = toRef(state.cartList, 'cartList')
-const { cartList, result } = toRefs(state)
+const checkboxGroup = ref(null);
+const { cartList, checkedResIdList, isCheckedAll } = toRefs(state)
 
 
 // 通过计算属性 计算总价
-const total = computed(() => {
+const totalPrice = computed(() => {
     let sum = 0;
 
-    cartList.value.filter(item => state.result.includes(item.id))
+    cartList.value.filter(item => checkedResIdList.value.includes(item.id))
         .forEach(item => {
             sum += parseInt(item.num) * parseFloat(item.goods.price);
         })
@@ -35,9 +37,9 @@ const goTo = () => {
         path: '/home',
     })
 }
-const init = () => {
+const refreshCartList = () => {
 
-     showLoadingToast({
+    showLoadingToast({
         message: '加载中…',
         duration: 0,
         forbidClick: true,
@@ -47,51 +49,91 @@ const init = () => {
         if (!res) {
             return
         }
-         cartList.value = res.data
-
+        cartList.value = res.data
+        checkedResIdList.value= res.data.filter(n=>n.is_checked == 1).map(item => item.id);
         console.log(999, cartList.value, state.cartList)
-         closeToast()
+        closeToast()
     })
-
-
-   
-
 }
+
+
 //   异步改变购物车数量
 const onChange = (value, detail) => {
 
-    // if (checked.value.includes(item.id)) {
-    //     result.value = result.value.filter(id => id !== item.id)
-    // } else {
-    //     result.value.push(item.id)
-    // }
     showLoadingToast({
         forbidClick: true,
     })
-    
+
     console.log(value, detail)
 
-    return  modifyCart(detail.name, {num: value}).then((res)=>{
-        if(!res){
+    return modifyCart(detail.name, { num: value }).then((res) => {
+        if (!res) {
             return
         }
-        // if(res.status == 204){
-        //      cartList.value.forEach(item => {
-        //         console.log(1123, item.id, detail.name)
-        //         if(item.id == detail.name) {
-        //             item.num = value;
-        //         }
-        //     })
-        // } else {
-            init()
-       // }
+        if (res.status == 204) {
+            cartList.value.forEach(item => {
+                console.log(1123, item.id, detail.name)
+                if (item.id == detail.name) {
+                    item.num = value;
+                }
+            })
+        } else {
+            refreshCartList()
+        }
     })
 
-    
+
 }
 
+// 复选框change
+const groupChange = (valArr) => {
+    
+    checkedResIdList.value = valArr;
+    if (checkedResIdList.value.length == cartList.value.length) {
+        isCheckedAll.value = true;
+    } else {
+        isCheckedAll.value = false;
+    }
+
+    console.log();
+     showLoadingToast({
+        forbidClick: true,
+    })
+   
+    // 改变数据表中选中状态
+    checkedCard({ cart_ids: valArr }).then((res)=>{
+            console.log(res)
+            
+  
+    
+          closeToast()
+    }).catch(()=>{
+        refreshCartList()
+          closeToast()
+    });
+}
+//删除
+const deleteGood = (id)=>{
+
+}
+
+//
+const onSubmit = () => {
+
+}
+const allCheck = () => {
+    
+    isCheckedAll.value = !isCheckedAll.value
+    if (isCheckedAll.value) {
+        checkedResIdList.value = cartList.value.map(item => item.id)
+    } else {
+        checkedResIdList.value = []
+    }
+}
+
+
 onMounted(() => {
-    init()
+    refreshCartList()
 
 })
 </script>
@@ -102,7 +144,7 @@ onMounted(() => {
     <div class="cart-box">
         <div class="cart-body">
 
-            <van-checkbox-group v-model="checked">
+            <van-checkbox-group v-model="checkedResIdList" @change="groupChange" ref="checkboxGroup">
 
                 <van-swipe-cell v-for="(item, index) in cartList" :key="index">
                     <template #left>
@@ -119,20 +161,26 @@ onMounted(() => {
                             <div class="good-btn">
                                 <div class="price"><small>¥</small>{{ item.goods.price + '.00' }}</div>
                                 <van-stepper integer :min="1" :max="item.goods.stock" :model-value="item.num"
-                                    :name="item.id"  @change="onChange" />
+                                    :name="item.id" @change="onChange" />
                             </div>
                         </div>
                     </div>
                     <template #right>
-                        <van-button square type="danger" text="删除" />
+                       <van-button
+                            square
+                            icon="delete"
+                            type="danger"
+                            class="delete-button"
+                            @click="deleteGood(item.id)"
+                    />
                     </template>
 
                 </van-swipe-cell>
             </van-checkbox-group>
-            <van-submit-bar class="submit-all" :price="total * 100" @submit="onSubmit" button-text="结算">
-                <van-checkbox @click="allCheck" v-model:checked="checkAll">全选</van-checkbox>
+            <van-submit-bar class="submit-all" :price="totalPrice * 100" @submit="onSubmit" button-text="结算">
+                <van-checkbox @click="allCheck" v-model:checked="isCheckedAll">全选</van-checkbox>
             </van-submit-bar>
-             <div class="empty" v-if="!cartList.length">
+            <div class="empty" v-if="!cartList.length">
                 <img class="empty-cart" src="~assets/images/empty-car.png" alt="空购物车">
                 <div class="title">购物车空空如也</div>
                 <van-button round color="#1baeae" type="primary" block @click="goTo">前往选购</van-button>
@@ -215,7 +263,7 @@ onMounted(() => {
     }
 
     .submit-all {
-        margin-bottom: 50px;
+        margin-bottom: 60px;
 
         .van-checkbox {
             margin-left: 0px
