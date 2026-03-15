@@ -1,8 +1,17 @@
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted, provide,ref } from 'vue'
 import { useStore } from 'vuex';
+import { logout, getUser } from 'network/user.js'
 const store = useStore()
+const userInfo= ref(null)
+provide('user', computed(() => userInfo.value))
+
 onMounted(() => {
+  
+   getUser().then(res => {
+     // store.commit('setUser', res)
+     userInfo.value = res
+    }).catch();
   store.dispatch('updateCart')
 })
 </script>

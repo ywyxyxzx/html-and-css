@@ -1,4 +1,4 @@
-import {request} from './request';
+import {request} from './require';
 
 // 添加地址
 export function addAddress(params) {

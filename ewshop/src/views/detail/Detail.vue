@@ -31,10 +31,10 @@ const getGoodDetailFun = async () => {
     })
 }
 const handleAddCart = ()=>{
-    debugger
+    
     console.log(detail.value.id)
     addCart({goods_id: detail.value.id, num:1}).then((res)=>{
-        debugger
+        
         console.log(res)
         if(res && (res['status'] == '201' || res['status'] == '204')){
         //    showSuccessToast('添加成功');   
