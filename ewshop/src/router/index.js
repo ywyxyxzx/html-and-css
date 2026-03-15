@@ -14,6 +14,10 @@ const login = ()=> import('../views/profile/Login.vue')
 const routes = [
   {
     path: '/',
+    redirect: '/home'
+  },
+   {
+    path: '/home',
     name: 'home',
     component: home,
     meta: {

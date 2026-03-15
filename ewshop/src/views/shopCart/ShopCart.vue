@@ -1,7 +1,7 @@
 <script setup>
 import Navbar from 'components/common/navbar/navbar.vue';
 import { useRouter } from 'vue-router';
-import { addCart, getCart, modifyCart, checkedCard } from 'network/cart.js'
+import { addCart, getCart, modifyCart, checkedCard, deleteCartItem } from 'network/cart.js'
 import { useStore } from 'vuex';
 import { onMounted, reactive, toRef, ref, toRefs, computed } from 'vue';
 import { showSuccessToast, showFailToast, showToast, showLoadingToast, closeToast } from 'vant';
@@ -114,12 +114,20 @@ const groupChange = (valArr) => {
 }
 //删除
 const deleteGood = (id)=>{
-
+  deleteCartItem(id).then(res=>{
+    refreshCartList(); //重新初始化
+    store.dispatch('updateCart'); //改变vuex中的状态数量
+})
 }
 
 //
 const onSubmit = () => {
-
+     if(checkedResIdList.value.length == 0) {
+        showFailToast("请选择商品进行结算");
+        return;
+    }else{
+        router.push({path:'/createorder'});
+    }
 }
 const allCheck = () => {
     

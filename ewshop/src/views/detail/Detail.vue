@@ -8,6 +8,7 @@ import { getDetail } from 'network/detail.js'
 import { addCart } from 'network/cart.js'
 import { showSuccessToast, showFailToast, showToast } from 'vant';
 import storeVuex from '@/store';
+const  route = useRoute()
 
 const router = useRouter()
 // console.log(route.query)
