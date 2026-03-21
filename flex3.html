@@ -16,5 +16,20 @@
             
         </article>
     </main>
+
+    <script>
+        // 使用Array.prototype.sort实现数组从大到小排序（冒泡排序思想）
+        function aaaa(arr) {
+            return arr.sort((a, b) => {
+                // 如果a < b，交换它们的位置（冒泡排序中较大的往后“冒”）
+                if (a < b) return 1;
+                // 如果a > b，保持顺序
+                if (a > b) return -1;
+                // 相等时不交换
+                return 0;
+            });
+        }
+
+    </script>
 </body>
 </html>
