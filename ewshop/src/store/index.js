@@ -27,7 +27,12 @@ const storeVuex = createStore({
   actions: {
    updateCart(context, payload){
     return getCart().then(res=>{
-      context.commit('addCart', res.data.length || 0)
+      if(res){
+        context.commit('addCart', res.data.length)
+      }else {
+        context.commit('addCart', 0)
+      }
+     
     })
    },
   updateUser(context, res){
