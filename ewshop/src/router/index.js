@@ -10,11 +10,11 @@ const profile = () => import('../views/profile/Profile.vue')
 const shopCart = () => import('../views/shopCart/ShopCart.vue')
 const register = () => import('../views/profile/Register.vue')
 const login = () => import('../views/profile/Login.vue')
-const Address = () => import('../views/profile/Address');
-const AddressEdit = () => import('../views/profile/AddressEdit');
-const Order = () => import('../views/order/Order');
-const OrderDetail = () => import('../views/order/OrderDetail');
-const CreateOrder = () => import('../views/order/CreateOrder');
+const Address = () => import('../views/profile/Address.vue');
+const AddressEdit = () => import('../views/profile/AddressEdit.vue');
+const Order = () => import('../views/order/Order.vue');
+const OrderDetail = () => import('../views/order/OrderDetail.vue');
+const CreateOrder = () => import('../views/order/CreateOrder.vue');
 const routes = [
   {
     path: '/',
@@ -69,10 +69,11 @@ const routes = [
       title: '个人中心',
       isAuthRequired: true
     },
-    children: [
-      {
+
+  },
+   {
         path: '/address',
-        name: 'Address',
+        name: 'address',
         component: Address,
         meta: {
           title: '图书兄弟-地址管理',
@@ -81,44 +82,40 @@ const routes = [
       },
       {
         path: '/addressedit',
-        name: 'AddressEdit',
+        name: 'addressEdit',
         component: AddressEdit,
         meta: {
           title: '图书兄弟-编辑地址',
           isAuthRequired: true
         }
       },
-     
-
-    ]
+  {
+    path: '/order',
+    name: 'order',
+    component: Order,
+    meta: {
+      title: '图书兄弟-生成订单',
+      isAuthRequired: true
+    }
   },
-   {
-        path: '/order',
-        name: 'Order',
-        component: Order,
-        meta: {
-          title: '图书兄弟-生成订单',
-          isAuthRequired: true
-        }
-      },
-      {
-        path: '/createorder',
-        name: 'CreateOrder',
-        component: CreateOrder,
-        meta: {
-          title: '图书兄弟-订单预览',
-          isAuthRequired: true
-        }
-      },
-      {
-        path: '/orderdetail',
-        name: 'OrderDetail',
-        component: OrderDetail,
-        meta: {
-          title: '图书兄弟-订单详情',
-          isAuthRequired: true
-        }
-      },
+  {
+    path: '/createorder',
+    name: 'createOrder',
+    component: CreateOrder,
+    meta: {
+      title: '图书兄弟-订单预览',
+      isAuthRequired: true
+    }
+  },
+  {
+    path: '/orderdetail',
+    name: 'orderDetail',
+    component: OrderDetail,
+    meta: {
+      title: '图书兄弟-订单详情',
+      isAuthRequired: true
+    }
+  },
   {
     path: '/shopCart',
     name: 'shopCart',
