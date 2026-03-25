@@ -9,6 +9,7 @@ module.exports = defineConfig({
         'views': '@/views',
         'store': '@/store',
         'network': '@/network',
+        'utils': '@/utils',
       }
     },
     devtool: 'source-map'
