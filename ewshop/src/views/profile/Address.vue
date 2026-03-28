@@ -40,7 +40,7 @@ const onEdit = (item) => {
     router.push({ path: '/addressedit', query: { type: 'edit', addressId: item.id }})
 }
 
-  
+
 </script>
 
 <template>
@@ -60,6 +60,7 @@ const onEdit = (item) => {
         default-tag-text="默认"
         @add="onAdd"
         @edit="onEdit"
+
       />
     </div>
 </template>
