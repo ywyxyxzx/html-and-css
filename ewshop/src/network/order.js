@@ -1,4 +1,4 @@
-import {request} from './request';
+import {request} from './require.js';
 
 // 创建定单
 export function createOrder(params) {
