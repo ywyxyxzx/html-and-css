@@ -18,7 +18,7 @@ const state = reactive({
     aliyun: '',
     wechat: ''
 })
-const showPay = ref(false)
+const showPay = ref(true)
 const { cartList, address,  orderNo, aliyun, wechat } = toRefs(state)
 const goTo = () => {
     router.push({ path: '/address' })
@@ -58,15 +58,14 @@ const handleCreateOrder = () => {
          })*/
 
         // 轮询查看
-        const timer = setInterval(() => {
-            payOrderStatus(state.orderNo).then(res => {
-                 debugger
-                if (res == '2') {
-                    clearInterval(timer);
-                    router.push({ path: '/orderdetail', query: { id: state.orderNo } })
-                }
-            })
-        }, 2000)
+        // const timer = setInterval(() => {
+        //     payOrderStatus(state.orderNo).then(res => {
+        //         if (res == '2') {
+        //             clearInterval(timer);
+        //             router.push({ path: '/orderdetail', query: { id: state.orderNo } })
+        //         }
+        //     })
+        // }, 2000)
     })
 
 }
@@ -133,9 +132,13 @@ onMounted(() => {
         <van-submit-bar class="submit-all" :price="total * 100" button-text="生成订单" @submit="handleCreateOrder">
             商品金额
         </van-submit-bar>
-        <van-popover  closeable :close-on-click-overlay="true" v-model:show="showPay" position="bottom"
+        <van-popover  closeable :close-on-click-overlay="true" v-model:show="showPay" 
+        placement="bottom" 
+       
             :style="{ height: '40%' }" @close="close">
-
+            <template #reference>
+                <div style="width:100vw;text-align:center"></div>
+            </template>
             <van-grid :border="false" :column-num="2">
                 <van-grid-item>
                     支付宝二维码<br>
@@ -275,5 +278,9 @@ onMounted(() => {
 .submit-all {
     margin-bottom: 60px;
     z-index: 9 !important;
+}
+
+.van-popup{
+    
 }
 </style>
