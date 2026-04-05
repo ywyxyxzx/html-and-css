@@ -15,7 +15,7 @@ export class Details {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService: HousingService = inject(HousingService);
   housingLocationId = -1;
-  housingLocation: HousingLocationInfo ;
+  housingLocation: HousingLocationInfo | undefined;
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
