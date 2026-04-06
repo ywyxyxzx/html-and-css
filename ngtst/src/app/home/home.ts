@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,ChangeDetectorRef} from '@angular/core';
 import { HousingLocation } from '../housing-location/housing-location';
 import { inject } from '@angular/core';
 import { HousingService } from '../housing.service';
@@ -13,14 +13,17 @@ export class Home {
  housingLocationList: HousingLocationInfo[] = [];
  housingService: HousingService = inject(HousingService);
  filteredLocationList: HousingLocationInfo[] = [];
+ cdRef: ChangeDetectorRef = inject(ChangeDetectorRef);
  constructor() {
      this.housingService
       .getAllHousingLocations()
       .then((housingLocationList: HousingLocationInfo[]) => {
         this.housingLocationList = housingLocationList;
         this.filteredLocationList = housingLocationList;  
+        //this.cdRef.detectChanges();
+         this.cdRef.markForCheck()
       });
-    this.filteredLocationList = this.housingLocationList;
+    
   }
 
   filterResults(text: string) {
@@ -31,5 +34,7 @@ export class Home {
     this.filteredLocationList = this.housingLocationList.filter((housingLocation) =>
       housingLocation?.city.toLowerCase().includes(text.toLowerCase()),
     );
+    //this.cdRef.detectChanges();
+    this.cdRef.markForCheck()
   }
 }

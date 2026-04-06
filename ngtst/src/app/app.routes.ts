@@ -1,13 +1,19 @@
 import { Routes } from '@angular/router';
-import {Home} from './home/home';
-import {Details} from './details/details';
-export const routes: Routes = [ {
+
+export const routes: Routes = [
+  {
     path: '',
-    component: Home,
+    loadComponent: () => import('./home/home').then(m => m.Home),
     title: 'Home page',
   },
   {
     path: 'details/:id',
-    component: Details,
+    loadComponent: () => import('./details/details').then(m => m.Details),
     title: 'Home details',
-  },];
+  },
+  {
+    path: 'base',
+    loadComponent: () => import('./base-test/base-test').then(m => m.BaseTest),
+    title: 'Base Test page',
+  },
+];
