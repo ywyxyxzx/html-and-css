@@ -1,0 +1,5 @@
+<!--pages/navigator/navigator.wxml-->
+<navigator url="/pages/form/form" open-type="navigate">跳转到form页面，保留当前页面，不会跳转到tabBar</navigator>
+<navigator url="/pages/form/form" open-type="redirect">跳转到form页面，关闭当前页面，不会跳转到tabBar</navigator>
+<navigator url="/pages/index/index" open-type="reLaunch">跳转到form页面，关闭所有页面</navigator>
+<navigator url="/pages/index/index" open-type="switchTab">只能跳转tabbar页面</navigator>

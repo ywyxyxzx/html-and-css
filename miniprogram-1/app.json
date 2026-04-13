@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/map/map",
+    "pages/me/me",
+    "pages/camera/camera",
+    "pages/video/video",
+    "pages/index/index",
+    
+    "pages/audio/audio",
+    "pages/navigate/navigate",
+    "pages/button/button",
+    "pages/form/form",
+    
+    "pages/logs/logs"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "" 
+    }
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

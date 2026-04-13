@@ -1,0 +1,39 @@
+/**index.wxss**/
+@import '../../style/common.wxss'
+
+.box {
+  /*1px = 2rpx */
+  width: 200rpx;
+  height: 200rpx;
+  background-color: red;
+}
+
+.box-tap {
+  width: 400rpx;
+  height: 400rpx;
+  background-color: red;
+}
+
+.tap {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: green;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.carousel_swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+.carousel_swiper swiper-item {
+  width: 100%;
+}
+
+.carousel_swiper swiper-item image {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,39 @@
+<!--pages/formcomp/formcomp.wxml-->
+<navigator open-type="navigateBack" delta="1">back</navigator>
+<form bindsubmit="submitHandle" bindreset="resetHandle">
+	<!-- 1.按钮 -->
+	<view>
+		<button size="mini" type="default">按钮</button>
+		<button size="mini" type="primary">按钮</button>
+		<button size="mini" type='warn'>按钮</button>
+	</view>
+	<!-- 2.switch开关 -->
+	<view>
+		<switch checked="{{switchValue}}" type="switch" bindchange="switchChange" name='swicth'></switch>
+	</view>
+  <!-- 3.单选框 -->
+  <radio-group bindchange='radioChange' name='sex'>
+    <radio value="1" checked="{{radioValue == '1'}}"></radio>男
+    <radio value="0" checked="{{radioValue == '0'}}"></radio>女
+  </radio-group>
+
+  <!-- 4.多选框 -->
+  <checkbox-group bindchange='checkboxChange' name='fav'>
+    <checkbox value='smoking'  disabled="{{true}}" color='#ff6700'></checkbox>抽烟
+    <checkbox value='drinking' color='#ff6700'></checkbox>喝酒
+    <checkbox value='tangtou'></checkbox>烫头
+    <checkbox value='girl'></checkbox>姑娘
+  </checkbox-group>
+
+  <!-- 5.滑动条 -->
+  <view>
+    <slider value="{{sliderValue}}" show-value="{{true}}" name='slider'></slider>
+  </view>
+  <!--  6.输入框-->
+  <input name='username' value='小马哥' type='text' placeholder="请输入用户"></input>
+  <input name='password' value='' type='password' placeholder="请输入密码"></input>
+  <view>
+    <button form-type="submit">提交</button>
+    <button form-type="reset">重置</button>
+  </view>
+</form>

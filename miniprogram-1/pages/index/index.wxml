@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view>
+  <view>{{name }}</view>
+  <block wx:if="{{isShow}}">
+    <view>123</view>
+  </block>
+
+  <view wx:else>456</view>
+  <van-button type="primary" bind:tap="handleClick">isShow切换</van-button>
+  <block wx:for="{{menu}}" wx:key="name" wx:for-item="m" wx:for-index="i">
+    <view bind:tap="menuHandle" data-menu="{{i+1}}of">
+      <text>{{i+1}}-{{m.name}}</text>|<text>{{m.price}}</text><br />
+    </view>
+  </block>
+  <!-- 4.事件，事件传值 -->
+  <view class="box-tap" bind:tap="boxTapHandle">
+    <!-- catchtap:表示阻止冒泡的事件 -->
+    <view class="tap" catch:tap="tapHandle"></view>
+  </view>
+  <!-- 5.双向数据绑定 -->
+  <input type="text" value="{{inputVal}}" bindinput="inputEdit" data-key="inputVal"></input>
+  <text>{{inputVal}}</text>
+  <view class="carousel">
+    <swiper class="carousel_swiper" indicator-dots="{{true}}" indicator-color="rgba(0, 255, 0, .3)" indicator-active-color="#ff6700" interval="2000" autoplay="{{true}}" circular="{{true}}">
+      <swiper-item class="" item-id="">
+        <image src="/assets/1.jpg"></image>
+      </swiper-item>
+      <swiper-item class="" item-id="">
+      <image src="/assets/2.jpg"></image>
+         </swiper-item>
+      <swiper-item class="" item-id="">
+         <image src="/assets/3.jpg"></image>
+         </swiper-item>
+    
+    </swiper>
+   
+  </view>
+</view>

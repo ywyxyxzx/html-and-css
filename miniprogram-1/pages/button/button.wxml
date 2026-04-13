@@ -1,0 +1,20 @@
+<!--pages/button/button.wxml-->
+<!-- 打开客服对话，需要真机测试 
+
+1.修改对应的appid
+2.添加一个客服
+3.真机测试
+-->
+<button open-type="contact">contact</button>
+<!-- 分享只能分享个人，不能分享到朋友圈 -->
+<button open-type="share">share</button>
+<!-- 获取手机号（默认是加密，为了安全）api不针对个人开发者，需要企业小程序，配合后台结合session_key和app_id进行解密来获取对应的手机号，返回给前端 -->
+<button open-type="getPhoneNumber" bindgetphonenumber='getPhoneNumber'>getPhoneNumber</button>
+<!-- 获取用户信息，需要一开始用户授权 -->
+<button open-type="getUserInfo" bindgetuserinfo='getUserInfo'>getUserInfo</button>
+<!-- 打开app 暂时完不成这件事 -->
+<button open-type="launchApp">launchApp</button>
+<!-- 打开授权页面 -->
+<button open-type="openSetting">openSetting</button>
+<!-- 打开意见反馈 需要真机测试 -->
+<button open-type="feedback">feedback</button>

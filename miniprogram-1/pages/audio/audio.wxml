@@ -1,0 +1,5 @@
+<!--pages/audio/audio.wxml-->
+<text>pages/audio/audio.wxml</text><!--pages/audio/audio.wxml-->
+<button bindtap="play" type="primary">播放</button>
+<button bindtap="pause" type="primary">暂停</button>
+<button bindtap="seekBack" type="primary">重新播放</button>

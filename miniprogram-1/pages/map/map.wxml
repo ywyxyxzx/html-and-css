@@ -1,0 +1,7 @@
+<view>
+<map id="myMap" style="width:100%;height:300px" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}"></map>
+<button type="primary" bindtap="getGenterLocation">获取当前的位置</button>
+<button type="primary" bindtap="moveToLocation">移动位置</button>
+<button type="primary" bindtap="translateMarker">移动标注</button>
+<button type="primary" bindtap="includePoints">缩放视野</button>
+</view>
