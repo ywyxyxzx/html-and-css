@@ -1,1 +1,16 @@
-<p>base-test works!</p>
+<!-- @defer (when aa){
+1231
+} @placeholder {
+<p>Future comments</p>
+} -->
+<ul>
+
+    <li>
+        Static Image:
+        <img src="/assets/swkl.jpg" alt="Angular logo" width="32" height="32" />
+    </li>
+    <li>
+        Dynamic Image:
+        <img [ngSrc]="logoUrl" [alt]="logoAlt" width="32" height="32" />
+    </li>
+</ul>
