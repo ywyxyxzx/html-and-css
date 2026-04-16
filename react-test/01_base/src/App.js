@@ -4,6 +4,11 @@ import React from 'react';
 import MyBtn from './MyBtn';
 import Comment from './Comment';
 import Life from './Life';
+import Control from './Control';
+import NotControl from './NotControl'
+import Form from './Form'
+
+
 const arr = [1, 2, 3];
 class App extends React.Component {
    constructor(props){
@@ -74,6 +79,17 @@ class App extends React.Component {
      </div>
      <Life lifeClick={this.lifeClick} title={this.state.lifeTitle}></Life>
      <button onClick={()=>this.setState({lifeTitle:'hello'})}>改变子组件标题</button>
+
+     <div>
+        <p>control</p>
+       <Control/>
+       <p>NotControl</p>
+        <NotControl/>
+     </div>
+
+     <div>
+      <Form/>
+     </div>
     </div>
 
   }
