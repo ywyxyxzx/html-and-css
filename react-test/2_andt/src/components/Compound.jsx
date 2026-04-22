@@ -17,7 +17,7 @@ function WelcomeDialog() {
   return (
     <Dialog color='green' btn={confirmBtn}>
       <h3>welcome</h3>
-      <p>欢迎光临</p>
+      <p>欢迎光临1</p>
     </Dialog>
   )
 }
