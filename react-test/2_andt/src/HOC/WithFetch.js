@@ -1,5 +1,5 @@
 import React from 'react'
-const withFetch = (fetch) => (Comp) => {
+export const withFetch = (fetch) => (Comp) => {
     return class extends React.Component {
         constructor(props) {
             super(props)
@@ -8,16 +8,17 @@ const withFetch = (fetch) => (Comp) => {
             }
         }
         componentDidMount() {
+            console.log(fetch)
            if(fetch === 'A') {
             this.setState({data:[
-               {id: 1,title: 'Vue3',catagory:'A'},
-               {id: 2,title: 'React',catagory:'A'},
+               {id: 1,title: 'Vue3',category:'A'},
+               {id: 2,title: 'React',category:'A'},
        
             ]})
            }else {
             this.setState({data:[
-               {id: 1,title: 'python',catagory:'B'},
-               {id: 2,title: 'Django',catagory:'B'},
+               {id: 1,title: 'python',category:'B'},
+               {id: 2,title: 'Django',category:'B'},
        
             ]})
            }
