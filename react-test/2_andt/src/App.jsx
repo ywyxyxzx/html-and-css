@@ -4,6 +4,8 @@ import CommentList from './components/CommentList'
 import Hoc2 from './components/Hoc'
 import MovieA from './components/MovieA';
 import MovieB from './components/MovieB';
+import Auth1 from './components/Auth1';
+import Auth2 from './components/Auth2';
 import './App.css'
 import 'antd/dist/antd.css'
 
@@ -17,6 +19,8 @@ function App() {
       <Hoc2/>
       <MovieA></MovieA>
       <MovieB></MovieB>
+      <Auth1/>
+      <Auth2/>
     </> 
   )
 }
