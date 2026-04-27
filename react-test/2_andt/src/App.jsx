@@ -8,6 +8,8 @@ import Auth1 from './components/Auth1';
 import Auth2 from './components/Auth2';
 import './App.css'
 import 'antd/dist/antd.css'
+import ContextSimple from './components/ContextSimple';
+import ContextSimple2 from './components/ContextSimple2';
 
 function App() {
   
@@ -21,6 +23,9 @@ function App() {
       <MovieB></MovieB>
       <Auth1/>
       <Auth2/>
+      <hr></hr>
+      <ContextSimple></ContextSimple>
+      <ContextSimple2></ContextSimple2>
     </> 
   )
 }
