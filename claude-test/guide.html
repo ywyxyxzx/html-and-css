@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阅读指南 - 计算机AI学习方法</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AI学习指南</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="overview.html">内容速览</a></li>
+                <li><a href="guide.html">阅读指南</a></li>
+                <li><a href="quiz.html">适合度测评</a></li>
+                <li><a href="quotes.html">精选摘录</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: var(--space-xl); color: var(--primary);">阅读指南</h1>
+
+        <!-- 适合度详细分析 -->
+        <div class="two-column">
+            <div class="comparison">
+                <h3>特别适合</h3>
+                <ul>
+                    <li>计算机相关专业大学生</li>
+                    <li>想转行AI的职场新人</li>
+                    <li>有编程基础的技术爱好者</li>
+                    <li>需要AI知识的创业者</li>
+                    <li>对技术有热情的学习者</li>
+                </ul>
+            </div>
+            <div class="comparison not-suitable">
+                <h3>需要谨慎</h3>
+                <ul>
+                    <li>完全零基础且不愿补基础</li>
+                    <li>数学基础很差且没时间补</li>
+                    <li>期望几天就学会的速成者</li>
+                    <li>只想了解概念的非技术人员</li>
+                    <li>没有时间坚持学习的人</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 阅读计划生成器 -->
+        <div class="reading-plan">
+            <h2 style="text-align: center; margin-bottom: var(--space-md); color: var(--primary);">制定你的阅读计划</h2>
+            <form id="planForm" class="plan-form">
+                <div class="form-group">
+                    <label for="minutesPerDay">每天阅读时间</label>
+                    <select id="minutesPerDay" required>
+                        <option value="30">30分钟</option>
+                        <option value="45">45分钟</option>
+                        <option value="60">1小时</option>
+                        <option value="90">1.5小时</option>
+                        <option value="120">2小时</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="totalDays">计划完成天数</label>
+                    <select id="totalDays" required>
+                        <option value="7">1周</option>
+                        <option value="14">2周</option>
+                        <option value="21">3周</option>
+                        <option value="30">1个月</option>
+                        <option value="60">2个月</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">生成计划</button>
+            </form>
+            <div id="planResult" class="plan-result" style="display: none;"></div>
+        </div>
+
+        <!-- 常见问题FAQ -->
+        <div class="faq">
+            <h2>常见问题</h2>
+            <div class="faq-item">
+                <div class="faq-question">Q: 完全没有编程基础能学会吗？</div>
+                <div class="faq-answer">A: 可以！本书从Python基础开始讲起，但建议每天多花30分钟练习编程基础。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: 数学不好会影响学习效果吗？</div>
+                <div class="faq-answer">A: 本书尽量用通俗语言解释数学概念，但建议补充基础的统计学和概率知识。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: 学完这本书能达到什么水平？</div>
+                <div class="faq-answer">A: 能独立完成简单的AI项目，具备进入AI行业的基础能力，为进一步学习打下坚实基础。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: 需要准备什么样的电脑？</div>
+                <div class="faq-answer">A: 普通笔记本即可，建议8GB内存以上。书中案例对硬件要求不高。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Q: 学习中遇到问题怎么办？</div>
+                <div class="faq-answer">A: 建议加入学习社群，多查阅官方文档，善用搜索引擎，不要害怕犯错。</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: var(--space-xl) 0;">
+            <a href="quiz.html" class="btn btn-primary">测试适合度</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 AI学习指南 | 让AI学习更简单</p>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+</html>

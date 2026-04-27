@@ -1,0 +1,18 @@
+{
+  "env": {
+        "HTTP_PROXY":"http://127.0.0.1:7897",
+    "HTTPS_PROXY":"http://127.0.0.1:7897",
+    "ANTHROPIC_AUTH_TOKEN": "ak_2BJ8j873L2Bv59g1iL9By9mu0wa8h",
+    "ANTHROPIC_BASE_URL": "https://api.longcat.chat/anthropic",
+    "ANTHROPIC_MODEL": "LongCat-Flash-Chat",
+    "ANTHROPIC_SMALL_FAST_MODEL": "LongCat-Flash-Chat",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "LongCat-Flash-Chat",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "LongCat-Flash-Chat",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "6000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
+  },
+  "permissions": {
+    "allow": [],
+    "deny": []
+  }
+}
