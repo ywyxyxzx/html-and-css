@@ -10,7 +10,7 @@ import './App.css'
 import 'antd/dist/antd.css'
 import ContextSimple from './components/ContextSimple';
 import ContextSimple2 from './components/ContextSimple2';
-
+import AntdForm from './components/AntdForm';
 function App() {
   
 
@@ -26,6 +26,7 @@ function App() {
       <hr></hr>
       <ContextSimple></ContextSimple>
       <ContextSimple2></ContextSimple2>
+      <AntdForm></AntdForm>
     </> 
   )
 }
