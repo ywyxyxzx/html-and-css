@@ -1,5 +1,6 @@
 import { Form, Icon, Input, Button } from 'antd';
-import React from 'react'
+import React from 'react';
+
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
@@ -7,8 +8,9 @@ function hasErrors(fieldsError) {
 class HorizontalLoginForm extends React.Component {
   componentDidMount() {
     // To disable submit button at the beginning.
+    debugger
     this.props.form.validateFields();
-  } 
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -21,7 +23,7 @@ class HorizontalLoginForm extends React.Component {
 
   render() {
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-
+    console.log(1111,this.props.form)
     // Only show error after a field is touched.
     const usernameError = isFieldTouched('username') && getFieldError('username');
     const passwordError = isFieldTouched('password') && getFieldError('password');
@@ -57,7 +59,7 @@ class HorizontalLoginForm extends React.Component {
     );
   }
 }
-// 高阶组件
+
 const WrappedHorizontalLoginForm = Form.create({ name: 'horizontal_login' })(HorizontalLoginForm);
 
 export default WrappedHorizontalLoginForm;

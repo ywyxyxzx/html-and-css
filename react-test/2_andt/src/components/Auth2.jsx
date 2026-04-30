@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React,{ Component } from "react";
 import {withAuth} from '../HOC/WithAuth'
 
 const role = 'User'
