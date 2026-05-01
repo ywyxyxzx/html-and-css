@@ -12,6 +12,7 @@ import ContextSimple from './components/ContextSimple';
 import ContextSimple2 from './components/ContextSimple2';
 import AntdForm from './components/AntdForm';
 import MyForm from './components/MyForm';
+import MyForm2 from './components/MyForm2';
 function App() {
   
 
@@ -31,6 +32,8 @@ function App() {
       <AntdForm></AntdForm>
       <hr></hr>
       <MyForm></MyForm>
+         <hr></hr>
+          <MyForm2></MyForm2>
     </> 
   )
 }

@@ -8,7 +8,6 @@ function hasErrors(fieldsError) {
 class HorizontalLoginForm extends React.Component {
   componentDidMount() {
     // To disable submit button at the beginning.
-    debugger
     this.props.form.validateFields();
   }
 

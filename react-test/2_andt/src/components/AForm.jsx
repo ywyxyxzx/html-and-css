@@ -125,46 +125,17 @@ class FormItem extends React.Component{
 }
 
 
-@MyFormCreate
-class MyForm extends React.Component {
+
+class AForm extends React.Component {
   static Item = FormItem
-   handleSubmit(e){
-    
-    this.props.form.validateFields((isValid, errorMsg)=>{
-      
-      if(isValid){
-        alert('checked pass')
-      } else {
-          alert(errorMsg || "failed")
-        
-        
-      
-      }
-    })
-   }
+  static create = Comp => MyFormCreate(Comp)
     
   render() {
-    const { getFieldDecorator ,isFieldTouched, getFieldError} = this.props.form;
-    const usernameError = isFieldTouched('username') && getFieldError('username');
-    const passwordError = isFieldTouched('password') && getFieldError('password');
     return (
-      <div>
-        <FormItem validateStatus={usernameError ? 'error' : ''} help={usernameError || ''}>
-          {getFieldDecorator('username', {
-            rules: [{ required: true, message: 'Please input your username!' }]
-          })(<input type="text" />)
-          }
-        </FormItem>
-        <FormItem validateStatus={passwordError ? 'error' : ''} help={passwordError || ''}>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-          })(<input type="password" />)
-          }
-        </FormItem>
-
-        <button onClick={(e) => this.handleSubmit(e)}>Submit</button>
-      </div>
+      <form onSubmit={this.props.onSubmit}>
+        {this.props.children}
+      </form>
     )
   }
 }
-export default MyForm
+export default AForm
