@@ -58,6 +58,10 @@ class App extends React.Component {
     lifeClick=(value)=>{
       console.log(value)
     }
+
+    commentClick = (e)=>{
+      alert("1111111111111111111111111111111111")
+    }
   render() {
     console.log('3.父组件挂render')
     return <div>
@@ -71,8 +75,9 @@ class App extends React.Component {
       </ul>
       <MyBtn title="submit"></MyBtn> 
       <div className="commentBox">
-        <Comment {...this.user} add={this.add}></Comment>
-      </div>
+        111
+        <Comment {...this.user} add={this.add} onClick={this.commentClick}></Comment>
+      </div>z
      <div>
       <p>{this.state.count}</p>
       <button onClick={(e)=>this.addCount(e)}>+1</button>

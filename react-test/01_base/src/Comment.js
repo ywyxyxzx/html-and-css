@@ -6,15 +6,15 @@ class Comment extends Component {
         this.name = props.name
         
     }
-    handleClick=()=>{
+    handleClick=(text)=>{
         console.log(this)
-        this.props.add('子组件的值')
+        this.props.add(text)
   
     }
     render(){
-        return <div className='box'>
-            <p  onClick={this.handleClick}>{this.props.name}</p>
-             <p >{this.props.age}</p>
+        return <div className='box' onClick={this.props.onClick}>
+            <p  onClick={()=>this.handleClick(this.props.name)}>{this.props.name}</p>
+             <p onClick={()=>this.handleClick(this.props.age)}>{this.props.age}</p>
         </div>
     }
 }
