@@ -1,19 +1,36 @@
-
+import React from 'react'
 import './App.css'
 import store from './storte.js'
-function App() {
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: store.getState()
+    }
+  }
 
+  componentDidMount() {
+    this.unsubscribe = store.subscribe(() => {
+      debugger
+      this.setState({ count: store.getState() })
+    })
+  }
 
-  return (
+  componentWillUnmount() {
+    this.unsubscribe()
+  }
+
+  render() {
+    return (
     <>
     {/* redux */}
       <div>
-        {store.getState()}
+        {this.state.count}
         <button onClick={() => store.dispatch({ type: 'INCREMENT' })}> + </button>
         <button onClick={() => store.dispatch({ type: 'DECREMENT' })}> - </button>
       </div>
     </>
-  )
+    )
+  }
 }
-
 export default App
