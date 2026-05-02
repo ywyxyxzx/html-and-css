@@ -1,34 +1,23 @@
 import React from 'react'
 import './App.css'
-import store from './storte.js'
+import ReduxTest1 from './reduxTest1'
+import store from './store.js'
+import { Provider } from 'react-redux'
+import ReactReduxTest2 from './reactReduxTest2'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      count: store.getState()
-    }
-  }
-
-  componentDidMount() {
-    this.unsubscribe = store.subscribe(() => {
-      debugger
-      this.setState({ count: store.getState() })
-    })
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe()
   }
 
   render() {
     return (
     <>
-    {/* redux */}
-      <div>
-        {this.state.count}
-        <button onClick={() => store.dispatch({ type: 'INCREMENT' })}> + </button>
-        <button onClick={() => store.dispatch({ type: 'DECREMENT' })}> - </button>
-      </div>
+    <Provider store={store}>
+      <ReduxTest1 />
+      <hr></hr>
+      <ReactReduxTest2 />
+    </Provider>
     </>
     )
   }
