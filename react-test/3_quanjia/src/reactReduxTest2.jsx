@@ -6,11 +6,18 @@ const mapStateToProps = (state) => {
         count: state
     }
 }
-
+const asyncAdd = () => {
+    return (dispatch) => {
+        setTimeout(() => {
+            dispatch({ type: 'INCREMENT' })
+        }, 2000)
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return {
         increment: () => dispatch({ type: 'INCREMENT' }),
-        decrement: () => dispatch({ type: 'DECREMENT' })
+        decrement: () => dispatch({ type: 'DECREMENT' }),
+        asyncAdd: () => dispatch(asyncAdd())
     }
 }
 
@@ -28,6 +35,7 @@ class ReactReduxTest2 extends React.Component {
                 {this.props.count}
                 <button onClick={() => this.props.increment()}> + </button>
                 <button onClick={() => this.props.decrement()}> - </button>
+                <button onClick={() => this.props.asyncAdd()}> async + </button>
             </div>
         </>)
     }
