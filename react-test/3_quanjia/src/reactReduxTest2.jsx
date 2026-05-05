@@ -1,25 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import store from './store.js'
-const mapStateToProps = (state) => {
-    return {
-        count: state
-    }
-}
-const asyncAdd = () => {
-    return (dispatch) => {
-        setTimeout(() => {
-            dispatch({ type: 'INCREMENT' })
-        }, 2000)
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        increment: () => dispatch({ type: 'INCREMENT' }),
-        decrement: () => dispatch({ type: 'DECREMENT' }),
-        asyncAdd: () => dispatch(asyncAdd())
-    }
-}
+import {mapStateToProps, mapDispatchToProps}from './store/couter.reducer'
+
 
 @connect(mapStateToProps, mapDispatchToProps)
 class ReactReduxTest2 extends React.Component {

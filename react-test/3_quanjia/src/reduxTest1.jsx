@@ -1,5 +1,5 @@
 import React from 'react'
-import store from './store.js'
+import store from './store/index'
  class ReduxTest1 extends React.Component {
     constructor(props) {
         super(props)
