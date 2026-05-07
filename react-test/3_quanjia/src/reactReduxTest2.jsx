@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {mapStateToProps, mapDispatchToProps}from './store/couter.reducer'
+import {mapStateToProps, mapDispatchToProps}from 'store/couter.reducer'
 
 
 @connect(mapStateToProps, mapDispatchToProps)

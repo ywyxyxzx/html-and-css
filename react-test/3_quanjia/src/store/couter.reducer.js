@@ -1,4 +1,6 @@
-function counter(state = 0, action) {
+const initialState = 0;
+
+function counter(state = initialState, action) {
   switch (action.type) {
     case 'INCREMENT':
       return state + 1;
@@ -11,7 +13,7 @@ function counter(state = 0, action) {
 
 export const mapStateToProps = (state) => {
     return {
-        count: state
+        count: state.counter
     }
 }
 export const asyncAdd = () => {

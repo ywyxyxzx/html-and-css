@@ -4,13 +4,13 @@ import store from './store/index'
     constructor(props) {
         super(props)
         this.state = {
-            count: store.getState()
+            count: store.getState().counter
         }
     }
     componentDidMount() {
         this.unsubscribe = store.subscribe(() => {
             this.setState({
-                count: store.getState()
+                count: store.getState().counter
             })
         })
     }
