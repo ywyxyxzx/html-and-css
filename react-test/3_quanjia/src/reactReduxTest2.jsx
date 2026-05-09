@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {mapStateToProps, mapDispatchToProps}from 'store/couter.reducer'
-
+import store from 'store/index'
 
 @connect(mapStateToProps, mapDispatchToProps)
 class ReactReduxTest2 extends React.Component {
@@ -10,6 +10,19 @@ class ReactReduxTest2 extends React.Component {
 
     }
 
+
+    componentDidMount() {
+        store.subscribe(() => {
+            this.setState({
+                count: store.getState().count
+            })
+          
+            console.log(12312312312312312,store.getState())
+        })
+    }
+    componentWillUnmount() {
+        store.unsubscribe()
+    }
     render() {
         return (<>
             {/* redux */}

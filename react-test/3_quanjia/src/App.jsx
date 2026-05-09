@@ -4,7 +4,9 @@ import ReduxTest1 from './reduxTest1'
 import store from './store/index'
 import { Provider } from 'react-redux'
 import ReactReduxTest2 from './reactReduxTest2'
+import appStore from 'store/mobx.js';
 
+import  MobxTest from './mobxTest'
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -18,6 +20,8 @@ class App extends React.Component {
       <hr></hr>
       <ReactReduxTest2 />
     </Provider>
+    <hr></hr>
+    <MobxTest appStore={appStore} />
     </>
     )
   }
