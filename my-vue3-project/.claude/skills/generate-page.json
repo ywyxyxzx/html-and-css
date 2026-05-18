@@ -1,0 +1,6 @@
+{
+  "name": "generate-page",
+  "description": "生成一个新的uni-app页面",
+  "usage": "/generate-page <页面名称> <页面标题>",
+  "enabled": true
+}

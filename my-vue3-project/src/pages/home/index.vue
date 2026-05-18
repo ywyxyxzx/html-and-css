@@ -1,3 +1,5 @@
+
+
 <script setup>
 import { ref } from 'vue';
 import {onHide, onLoad, onReady, onUnload} from '@dcloudio/uni-app';
@@ -18,9 +20,8 @@ onUnload(() => {
 onHide(() => {
   console.log('index page onHide');
 });
-
 const navigateToAbout = () => {
-  uni.switchTab({
+  uni.navigateTo({
     url: '/pages/about/index'
   });
 };
