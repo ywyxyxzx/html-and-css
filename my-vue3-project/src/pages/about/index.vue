@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import {onLoad} from '@dcloudio/uni-app';
+import {onLoad,onReady,onUnload,onHide} from '@dcloudio/uni-app';
 
 const title = ref('关于我们');
 const version = ref('1.0.0');
@@ -9,9 +9,27 @@ const description = ref('这是一个基于uni-app开发的Vue 3项目');
 onLoad(() => {
   console.log('about page onLoad');
 });
+
+onReady(() => {
+  console.log('about page onReady');
+});
+
+onUnload(() => {
+  console.log('about page onUnload');
+});
+
+onHide(() => {
+  console.log('about page onHide');
+});
+const backToHome = () => {
+  uni.switchTab({
+    url: '/pages/home/index'
+  });
+};
 </script>
 
 <template>
+  <view @click="backToHome">返回首页</view>
   <view class="content">
     <view class="about-section">
       <text class="title">{{ title }}</text>

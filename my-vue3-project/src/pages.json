@@ -3,7 +3,8 @@
 		{
 			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
 			}
 		},
 		{
@@ -28,6 +29,12 @@
 			"path": "pages/404/index",
 			"style": {
 				"navigationBarTitleText": "页面未找到"
+			}
+		},
+		{
+			"path": "pages/test/index",
+			"style": {
+				"navigationBarTitleText": "测试"
 			}
 		}
 	],

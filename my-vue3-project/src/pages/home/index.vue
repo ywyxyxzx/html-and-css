@@ -2,9 +2,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import {onHide, onLoad, onReady, onUnload} from '@dcloudio/uni-app';
+import {onHide, onLoad, onPullDownRefresh, onReady, onResize, onUnload} from '@dcloudio/uni-app';
 const title = ref('Hello uni-app');
-
+const count = ref(0);
 onLoad(() => {
   console.log('index page onLoad');
 });
@@ -20,11 +20,24 @@ onUnload(() => {
 onHide(() => {
   console.log('index page onHide');
 });
+
+onResize(() => {
+  console.log('index page onResize');
+});
+onPullDownRefresh(() => {
+  console.log('index page onPullDownRefresh');
+});
 const navigateToAbout = () => {
-  uni.navigateTo({
-    url: '/pages/about/index'
+  uni.switchTab({
+     url: '/pages/about/index'
   });
 };
+const navigateToTest = () => {
+  uni.navigateTo({
+     url: '/pages/test/index'
+  });
+};
+
 
 </script>
 <template>
@@ -32,7 +45,28 @@ const navigateToAbout = () => {
     <image class="logo" src="/static/logo.png"></image>
     <view class="text-area">
       <text class="title">{{ title }}</text>
-      <text class="title" @click="navigateToAbout">to about</text>
+      <!-- <text class="title" @click="navigateToAbout">to about</text> -->
+      <navigator
+        url="/pages/about/index"
+        open-type="switchTab"
+        hover-class="navigator-hover"
+      >
+        to about
+      </navigator>
+
+    </view>
+    <view>
+      {{ count }}<button @click="count++">+</button><button @click="count--">-</button>
+    </view>
+     <view>
+      <!-- <text class="title" @click="navigateToTest">to test</text> -->
+       <navigator
+        url="/pages/test/index"
+        open-type="navigate"
+        hover-class="navigator-hover"
+      >
+        to test
+      </navigator>
     </view>
   </view>
 </template>
