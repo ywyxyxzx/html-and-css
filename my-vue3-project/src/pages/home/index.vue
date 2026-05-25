@@ -28,8 +28,9 @@ onPullDownRefresh(() => {
   console.log('index page onPullDownRefresh');
 });
 const navigateToAbout = () => {
-  uni.switchTab({
-     url: '/pages/about/index'
+  uni.$emit('toAbout', {msg: 'Hello from home page'});
+  uni.navigateTo({
+     url: '/pages/about/index?title=函数式传参'
   });
 };
 const navigateToTest = () => {
@@ -45,14 +46,16 @@ const navigateToTest = () => {
     <image class="logo" src="/static/logo.png"></image>
     <view class="text-area">
       <text class="title">{{ title }}</text>
-      <!-- <text class="title" @click="navigateToAbout">to about</text> -->
-      <navigator
-        url="/pages/about/index"
-        open-type="switchTab"
+      <!-- 函数式跳转 -->
+      <text class="title" @click="navigateToAbout">to about</text>
+     <!-- 组件式跳转 -->
+      <!-- <navigator
+        url="/pages/about/index?title=组件式传参"
+        open-type="navigate"
         hover-class="navigator-hover"
       >
         to about
-      </navigator>
+      </navigator> -->
 
     </view>
     <view>

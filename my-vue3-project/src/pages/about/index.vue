@@ -5,9 +5,16 @@ import {onLoad,onReady,onUnload,onHide} from '@dcloudio/uni-app';
 const title = ref('关于我们');
 const version = ref('1.0.0');
 const description = ref('这是一个基于uni-app开发的Vue 3项目');
+ uni.$on('toAbout', (data) => {
+   debugger
+    console.log('about page received event:', data);
+  });
 
-onLoad(() => {
-  console.log('about page onLoad');
+onLoad((options) => {
+ 
+  console.log('about page onLoad',options);
+  title.value = options.title || title.value;
+ 
 });
 
 onReady(() => {
