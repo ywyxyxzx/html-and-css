@@ -60,8 +60,17 @@ DELETE FROM stu ORDER BY age limit 1;
 DELETE FROM stu ORDER BY id DESC limit 1;
 
 # 改表结构
+ # 修改表名
 ALTER TABLE stu RENAME stus;
 RENAME TABLE stus to stu;
+ # 修改表字符集
+ALTER TABLE class charset gbk;
+
+  # 删除表所有数据
+TRUNCATE stu;
+
+ # 删除表
+DROP TABLE IF EXISTS stu;
 
 CREATE TABLE stu2 SELECT * FROM stu; 
 DELETE FROM stu2;
