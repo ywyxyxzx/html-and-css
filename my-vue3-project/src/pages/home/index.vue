@@ -46,18 +46,11 @@ const navigateToTest = () => {
     <image class="logo" src="/static/logo.png"></image>
     <view class="text-area">
       <text class="title">{{ title }}</text>
-      <!-- 函数式跳转 -->
-      <text class="title" @click="navigateToAbout">to about</text>
-     <!-- 组件式跳转 -->
-      <!-- <navigator
-        url="/pages/about/index?title=组件式传参"
-        open-type="navigate"
-        hover-class="navigator-hover"
-      >
-        to about
-      </navigator> -->
+     
 
     </view>
+
+
     <view>
       {{ count }}<button @click="count++">+</button><button @click="count--">-</button>
     </view>
@@ -68,8 +61,20 @@ const navigateToTest = () => {
         open-type="navigate"
         hover-class="navigator-hover"
       >
-        to test
+        to test 带参数
       </navigator>
+    </view>
+        <view>
+       <!-- 函数式跳转 -->
+      <text class="title" @click="navigateToAbout">to about 带参数</text>
+     <!-- 组件式跳转 -->
+      <!-- <navigator
+        url="/pages/about/index?title=组件式传参"
+        open-type="navigate"
+        hover-class="navigator-hover"
+      >
+        to about
+      </navigator> -->
     </view>
   </view>
 </template>

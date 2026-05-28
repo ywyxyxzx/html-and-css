@@ -4,6 +4,17 @@ create DATABASE bbb charset utf8;
 use bbb; 
 # 创建表
 create table table1(id int PRIMARY KEY AUTO_INCREMENT, name varchar(20) NOT NULL, title varchar(30) NULL, sex SMALLINT NOT NULL, description varchar(40));
+# 删除表
+Drop table if EXISTS table1;
+
+# 复制表
+create table hdcms like class;
+insert into hdcms select * from class;
+  # 或者
+create table hdjs select * from class;
+  # 插入部分数据
+insert into hdcms (cname) select cname from class;
+
 # 插入数据
 insert into table1 (name, sex, title, description) VALUES ('Tom', 1, 'English', 'a student'); 
 

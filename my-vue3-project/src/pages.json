@@ -49,13 +49,15 @@
 				"iconPath": "static/logo.png",
 				"selectedIconPath": "static/logo.png",
 				"text": "首页"
-			},
-			{
-				"pagePath": "pages/category/index",
-				"iconPath": "static/logo.png",
-				"selectedIconPath": "static/logo.png",
-				"text": "分类"
-			},
+			}
+			,
+			// {
+			// 	"pagePath": "pages/category/index",
+			// 	"iconPath": "static/logo.png",
+			// 	"selectedIconPath": "static/logo.png",
+			// 	"text": "分类"
+			// }
+			,
 			{
 				"pagePath": "pages/profile/index",
 				"iconPath": "static/logo.png",
