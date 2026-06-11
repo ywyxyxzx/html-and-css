@@ -1,0 +1,17 @@
+{
+  "name": "7-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "windev": "set NODE_ENV=development && node index.js",
+    "dev": "cross-env NODE_ENV=development node index.js",
+    "pro": "cross-env NODE_ENV=production node index.js "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.0"
+  }
+}

@@ -59,3 +59,4 @@ myFunction('参数1', '参数2', function(err, result) { console.log(222,err, re
 //   callback('结果');
 // });
 // bb(function() { console.log(222)});
+
