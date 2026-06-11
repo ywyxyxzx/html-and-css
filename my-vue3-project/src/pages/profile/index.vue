@@ -3,6 +3,21 @@
     <view class="content">
       <text class="title">个人中心</text>
       <text class="desc">这是个人中心页面</text>
+
+      <navigator
+        url="/pages/about/index"
+        open-type="navigate"
+        hover-class="navigator-hover"
+      >
+        to about
+      </navigator>
+       <navigator
+        url="/pages/category/index"
+        open-type="navigate"
+        hover-class="navigator-hover"
+      >
+        to category
+      </navigator>
     </view>
   </view>
 </template>

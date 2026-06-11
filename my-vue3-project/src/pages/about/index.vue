@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import {onLoad,onReady,onUnload,onHide} from '@dcloudio/uni-app';
-
+  import {
+    onMounted,
+    getCurrentInstance
+  } from 'vue';
 const title = ref('关于我们');
 const version = ref('1.0.0');
 const description = ref('这是一个基于uni-app开发的Vue 3项目');
@@ -14,11 +17,21 @@ onLoad((options) => {
  
   console.log('about page onLoad',options);
   title.value = options.title || title.value;
- 
+
 });
 
 onReady(() => {
   console.log('about page onReady');
+  const instance = getCurrentInstance().proxy
+  const eventChannel = instance.getOpenerEventChannel();
+  // eventChannel.emit('acceptDataFromOpenedPage', {
+  //   data: '1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111data from test page'
+  // });
+
+   // 在 onUnmounted 取消监听
+    eventChannel.on('acceptDataFromOpenerPage', function(data) {
+      console.log('acceptDataFromOpenerPage', data)
+    })
 });
 
 onUnload(() => {
@@ -33,10 +46,19 @@ const backToHome = () => {
     url: '/pages/home/index'
   });
 };
+const back = () => {
+  debugger
+ console.log(getCurrentPages()) 
+  uni.navigateBack({
+    delta: getCurrentPages().length
+  });
+};
 </script>
 
 <template>
-  <view @click="backToHome">返回首页</view>
+    <!-- <view @click="backToHome">返回首页</view>-->
+  
+<view @click="back">返回</view> 
   <view class="content">
     <view class="about-section">
       <text class="title">{{ title }}</text>

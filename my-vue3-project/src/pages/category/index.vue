@@ -3,6 +3,17 @@
     <view class="content">
       <text class="title">分类</text>
       <text class="desc">这是分类页面</text>
+
+      
+    </view>
+    <view>
+          <navigator
+        url="/pages/about/index"
+        open-type="navigate"
+        hover-class="navigator-hover"
+      >
+        to about
+      </navigator>
     </view>
   </view>
 </template>
