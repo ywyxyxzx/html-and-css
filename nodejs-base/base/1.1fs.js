@@ -1,5 +1,5 @@
 const fs = require('fs')
-const data = fs.readFileSync('./hello.md', 'utf-8')
+//const data = fs.readFileSync('./hello.md', 'utf-8')
 console.log(data)
 // 写入文件
 // fs.writeFile('./hello.md', '你好', (err) => {
@@ -10,12 +10,38 @@ console.log(data)
 
 // })
 // 读取文件
-fs.readFile('./hello.md', 'utf-8', (err, data) => {
-    if (err) {
-        console.log(err)
-    }
-    console.log(data)
-})
+async function readFileWithPromise(filePath) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, 'utf-8', (err, data) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(data)
+            }
+        }) 
+    })
+}
+async function writeFileWithPromise(filePath, content) {
+    return new Promise((resolve, reject) => {
+       fs.writeFile(filePath,content,{
+            encoding: 'utf8',   // 编码格式，默认 'utf8'
+        mode: 0o666,        // 文件权限，默认 0o666（可读写）
+        flag: 'a'       
+
+        },err => {
+              if (err) {
+                reject(err)
+            } else {
+                console.log('写入成功')
+                resolve()
+            }
+        })      
+    })
+}
+
+
+await readFileWithPromise('./hello.md')
+await writeFileWithPromise('./hello.md', '你好111111111111')
 
 // 追加文件
 // const buff = Buffer.from('你好111111111111')
