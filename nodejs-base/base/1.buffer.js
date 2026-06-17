@@ -7,10 +7,10 @@
 // console.log(Buffer.alloc(10)); // Buffer (length, fill)
 // console.log(Buffer.alloc(10,2)); 
 // console.log(Buffer.alloc(10,100)); // 100 16进制 64 fill 最大255
-// console.log(Buffer.alloc(10,256));
+// console.log(Buffer.alloc(10,257));
 // console.log(Buffer.alloc(10,-1));
 
-// const buf = Buffer.alloc(10);
+// let buf = Buffer.alloc(10);
 // buf[9] = 1;
 // console.log(buf)
 
@@ -44,29 +44,34 @@
 // const buf2 = Buffer.from('414243', 'hex'); // hex解码
 // const buf3 = Buffer.from('ABCD');
 
-// 相等
+// // 相等
 // console.log(buf1);
 // console.log(buf2);
 // console.log(buf1.equals(buf2));
-// // 打印: true
+// // // 打印: true
 // console.log(buf1.equals(buf3));
 
 
 // 查找指定值
 // console.log('---------------------------------------------')
 // const buf1 = Buffer.from('AABC');
-// console.log(buf1.indexOf('A')) // 1
-// console.log(buf1.lastIndexOf('A')) // 0
+// console.log(buf1.indexOf('A')) // 0
+// console.log(buf1.lastIndexOf('A')) // 1
 
 // slice
 // const buf = Buffer.from('abcdefghi');
 // console.log(buf.slice(2,7).toString());//cdefg
 
-const buf = Buffer.from('abcdefghi');
-const buf2 = Buffer.from('test');
-//  console.log(buf.copy(buf2));
-//  console.log(buf2.toString());
-console.log(buf2.copy(buf,2));
-console.log(buf.toString());
-console.log(buf2.copy(buf,2, 1, 3));
-console.log(buf.toString());
+// const buf = Buffer.from('abcdefghi');
+// const buf2 = Buffer.from('test');
+
+/// buffer copy buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])
+//console.log(buf.copy(buf2));
+ //console.log(buf2.toString());
+
+// console.log(buf2.copy(buf,2));
+// console.log(buf.toString());
+
+// console.log(buf2.copy(buf,2,
+//  1, 3));
+// console.log(buf.toString());
